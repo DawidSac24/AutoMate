@@ -259,9 +259,8 @@ void dep_pion() {
       Serial.println("100 droite");
       x_dep = x_dep + 100;
 
-     // Serial.print("x dep = ");
-      //Serial.println(x_dep);
-      Serial.printf("x dep = %d",x_dep)
+     Serial.print("x dep = ");
+      Serial.println(x_dep);
 
       dep_horizontal(&vit_dep, &x, 2);
     } else if (x_dep == 0) {
