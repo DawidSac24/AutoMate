@@ -31,9 +31,16 @@ void dep_vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
     delayMicroseconds(*temps);
   }
 }
-
 void envoi_ecran() {
   mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
+  mySerial.write(0xff);
+  mySerial.write(0xff);
+}
+
+void envoi_ecran1(char variable, int info) {
+  mySerial.print(variable);  // We always have to send this three lines after each command sent to the nextion display.
+  mySerial.print(info);        // We always have to send this three lines after each command sent to the nextion display.
+  mySerial.write(0xff);        // We always have to send this three lines after each command sent to the nextion display.
   mySerial.write(0xff);
   mySerial.write(0xff);
 }
@@ -122,12 +129,12 @@ void calibrate() {
   Serial.println("sequance = CALIBRATE");
 
   if (tour_blanc == true) {
-    mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    mySerial.print(minutes_blanc);
-    envoi_ecran();
-    mySerial.print("n1.val=");
-    mySerial.print(secondes_blanc);
-    envoi_ecran();
+    // mySerial.print("n0.val=");
+    // mySerial.print(minutes_blanc);
+    envoi_ecran1("n0.val=", minutes_blanc);
+    // mySerial.print("n1.val=");
+    // mySerial.print(secondes_blanc);
+    envoi_ecran1("n1.val=", secondes_blanc);
 
     mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     mySerial.print("\"");
@@ -136,12 +143,12 @@ void calibrate() {
     envoi_ecran();
     joueur_blanc();
   } else {
-    mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    mySerial.print(minutes_noir);
-    envoi_ecran();
-    mySerial.print("n1.val=");
-    mySerial.print(secondes_noir);
-    envoi_ecran();
+    // mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
+    // mySerial.print(minutes_noir);
+    envoi_ecran1("n0.val=", minutes_noir);
+    // mySerial.print("n1.val=");
+    // mySerial.print(secondes_noir);
+    envoi_ecran1("n1.val=", secondes_noir);
 
     mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     mySerial.print("\"");
@@ -259,7 +266,7 @@ void dep_pion() {
       Serial.println("100 droite");
       x_dep = x_dep + 100;
 
-     Serial.print("x dep = ");
+      Serial.print("x dep = ");
       Serial.println(x_dep);
 
       dep_horizontal(&vit_dep, &x, 2);
