@@ -4,6 +4,7 @@
 /*  Hardware : Arduino Nano, moteur pas à pas Nema 17, driveur moteur - Pololu - A4988, éléctro-aimant, écran graphique Nextion
     transistor Darlington - TIP 120, capteurs à aimants, Multiplexeur - CD74HC4067, button d'arcade, fin de course  */
 // 24.02.2024
+// J'aime le poulet ...
 //*****************************************************************************************************************************
 
 //********************************************** LIBRAIRIES *******************************************************************
