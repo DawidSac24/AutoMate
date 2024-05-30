@@ -213,6 +213,7 @@ void loop() {
           Serial.println(tour_blanc);
 
           calibrate();
+          
           Serial.print("colonne = ");
           colonne_select = id_bouton - 2;
           Serial.println(colonne_select);
