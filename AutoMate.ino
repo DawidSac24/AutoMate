@@ -79,7 +79,7 @@ void setup() {
   while (!Serial) {}
   // DDRC |= B00001111;
   reset_pos();
-  digitalWrite(AIMANT, 1);
+  // digitalWrite(AIMANT, 1);
 
   Serial.println("ready to start");
   t = millis;
@@ -237,6 +237,8 @@ void loop() {
           calibrate();
         if (data[2] == 2)
           reset_pos();
+        x_precedent = 0;
+        y_precedent = 0;
         break;
     }
   }
