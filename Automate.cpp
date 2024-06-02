@@ -37,17 +37,17 @@ void envoi_ecran() {
   mySerial.write(0xff);
 }
 
-void envoi_ecran1(char variable, int info) {
-  mySerial.print(variable);  // We always have to send this three lines after each command sent to the nextion display.
-  mySerial.print(info);        // We always have to send this three lines after each command sent to the nextion display.
-  mySerial.write(0xff);        // We always have to send this three lines after each command sent to the nextion display.
+void envoi_ecran1(char variable, int *info) {
+  mySerial.println('variable');
+  mySerial.println(*info);
+  mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
   mySerial.write(0xff);
   mySerial.write(0xff);
 }
 
 void reset_pos() {
   // dep vers l'arriere
-  vit_dep = 1800;
+  vit_dep = 1000;
 
   nmbre_pas = 50;
   dir_moteur = 1;
@@ -131,10 +131,10 @@ void calibrate() {
   if (tour_blanc == true) {
     // mySerial.print("n0.val=");
     // mySerial.print(minutes_blanc);
-    envoi_ecran1("n0.val=", minutes_blanc);
+    envoi_ecran1("n0.val=", &minutes_blanc);
     // mySerial.print("n1.val=");
     // mySerial.print(secondes_blanc);
-    envoi_ecran1("n1.val=", secondes_blanc);
+    envoi_ecran1("n1.val=", &secondes_blanc);
 
     mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     mySerial.print("\"");
@@ -145,10 +145,10 @@ void calibrate() {
   } else {
     // mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     // mySerial.print(minutes_noir);
-    envoi_ecran1("n0.val=", minutes_noir);
+    envoi_ecran1("n0.val=", &minutes_noir);
     // mySerial.print("n1.val=");
     // mySerial.print(secondes_noir);
-    envoi_ecran1("n1.val=", secondes_noir);
+    envoi_ecran1("n1.val=", &secondes_noir);
 
     mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     mySerial.print("\"");
@@ -202,12 +202,8 @@ void joueur_blanc() {
   Serial.println("JOUEUR_BLANC");
   if (millis() - t > 995) {  // Display the white player clock
     decompte();
-    mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    mySerial.print(minutes_blanc);
-    envoi_ecran();
-    mySerial.print("n1.val=");
-    mySerial.print(secondes_blanc);
-    envoi_ecran();
+    envoi_ecran1("n0.val=", &minutes_blanc);
+    envoi_ecran1("n1.val=", &secondes_blanc);
   }
 }
 
@@ -216,17 +212,12 @@ void joueur_noir() {
   Serial.println("JOUEUR_NOIR");
   if (millis() - t > 995) {  // Display the black player clock
     decompte();
-    mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    mySerial.print(minutes_noir);
-    envoi_ecran();
-    mySerial.print("n1.val=");
-    mySerial.print(secondes_noir);
-    envoi_ecran();
+    envoi_ecran1("n0.val=", &minutes_noir);
+    envoi_ecran1("n1.val=", &secondes_noir);
   }
 }
 
 void dep_pion() {
-  // digitalWrite(AIMANT, 1);
 
   Serial.print("x dep = ");
   Serial.println(x_dep);
@@ -234,6 +225,8 @@ void dep_pion() {
   Serial.println(y_dep);
 
   if (pion_selectionne == false) {
+    vit_dep = 1000;
+
     Serial.println("selection de pion");
 
     if (x_dep > 0) {
@@ -252,6 +245,10 @@ void dep_pion() {
     }
 
   } else if (pion_selectionne == true) {
+    digitalWrite(AIMANT, 1);
+
+    vit_dep = 1800;
+
     Serial.println("deplacement de pion");
 
     if (x_dep > 0) {
@@ -331,5 +328,5 @@ void dep_pion() {
       dep_vertical(&vit_dep, &x, &dir_moteur);
     }
   }
-  // digitalWrite(AIMANT, 0);
+  digitalWrite(AIMANT, 0);
 }
