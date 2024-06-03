@@ -37,70 +37,71 @@ void envoi_ecran() {
   mySerial.write(0xff);
 }
 
-void envoi_ecran1(char variable, int *info) {
-  mySerial.println('variable');
-  mySerial.println(*info);
+void envoi_ecran1(String *variable, int *info) {
+  Serial.println("evoi ecran =");
+  Serial.println(*variable);
+  Serial.println(*info);
+
+  mySerial.print(*variable);
+  mySerial.print(*info);
   mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
   mySerial.write(0xff);
   mySerial.write(0xff);
 }
 
 void reset_pos() {
-  // dep vers l'arriere
-  vit_dep = 1000;
+  // // dep vers l'arriere
+  // vit_dep = 1000;
 
-  nmbre_pas = 50;
-  dir_moteur = 1;
-  dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
+  // nmbre_pas = 50;
+  // dir_moteur = 1;
+  // dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
 
-  // dep vers la gauche
-  nmbre_pas = 80;
-  dep_horizontal(&vit_dep, &nmbre_pas, 1);
+  // // dep vers la gauche
+  // nmbre_pas = 80;
+  // dep_horizontal(&vit_dep, &nmbre_pas, 1);
 
-  // aimant va vers l'avant
-  dir_moteur = 2;
-  digitalWrite(DIR1, dir_moteur);
-  digitalWrite(DIR2, !dir_moteur);
-  while (digitalRead(FCA)) {
-    digitalWrite(STEP1, 1);
-    digitalWrite(STEP2, 1);
-    delayMicroseconds(vit_dep);
-    digitalWrite(STEP1, 0);
-    digitalWrite(STEP2, 0);
-    delayMicroseconds(vit_dep);
-  }
+  // // aimant va vers l'avant
+  // dir_moteur = 2;
+  // digitalWrite(DIR1, dir_moteur);
+  // digitalWrite(DIR2, !dir_moteur);
+  // while (digitalRead(FCA)) {
+  //   digitalWrite(STEP1, 1);
+  //   digitalWrite(STEP2, 1);
+  //   delayMicroseconds(vit_dep);
+  //   digitalWrite(STEP1, 0);
+  //   digitalWrite(STEP2, 0);
+  //   delayMicroseconds(vit_dep);
+  // }
 
-  // aimant va a droite
-  dir_moteur = 2;
-  digitalWrite(DIR1, dir_moteur);
-  digitalWrite(DIR2, dir_moteur);
-  while (digitalRead(FCB)) {
-    digitalWrite(STEP1, 1);
-    digitalWrite(STEP2, 1);
-    delayMicroseconds(vit_dep);
+  // // aimant va a droite
+  // dir_moteur = 2;
+  // digitalWrite(DIR1, dir_moteur);
+  // digitalWrite(DIR2, dir_moteur);
+  // while (digitalRead(FCB)) {
+  //   digitalWrite(STEP1, 1);
+  //   digitalWrite(STEP2, 1);
+  //   delayMicroseconds(vit_dep);
 
-    digitalWrite(STEP1, 0);
-    digitalWrite(STEP2, 0);
-    delayMicroseconds(vit_dep);
-  }
-  nmbre_pas = 50;  //                              deplacement vers la case H1
-  dir_moteur = 1;
-  dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
-  nmbre_pas = 40;
-  dep_horizontal(&vit_dep, &nmbre_pas, 2);
+  //   digitalWrite(STEP1, 0);
+  //   digitalWrite(STEP2, 0);
+  //   delayMicroseconds(vit_dep);
+  // }
+  // nmbre_pas = 50;  //                              deplacement vers la case H1
+  // dir_moteur = 1;
+  // dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
+  // nmbre_pas = 40;
+  // dep_horizontal(&vit_dep, &nmbre_pas, 2);
 }
 
 void decompte() {  //
   //  Set the time of the current player
-  if (tour == 2) {
-    tour = 0;
-    if (sequance == JOUEUR_BLANC) {
-      minutes = secondes_blanc;
-      minutes = minutes_blanc;
-    } else if (sequance == JOUEUR_NOIR) {
-      secondes = secondes_noir;
-      minutes = minutes_noir;
-    }
+  if (tour_blanc == true) {
+    minutes = secondes_blanc;
+    minutes = minutes_blanc;
+  } else if (tour_blanc == true) {
+    secondes = secondes_noir;
+    minutes = minutes_noir;
   }
 
   t = millis();
@@ -113,12 +114,12 @@ void decompte() {  //
   // Serial.println(minutes);
 
   //  Record the white player time
-  if (sequance == JOUEUR_BLANC) {
+  if (tour_blanc == true) {
     secondes_blanc = secondes;
     minutes_blanc = minutes;
   }
   //  Record the black player time
-  else if (sequance == JOUEUR_NOIR) {
+  else {
     secondes_noir = secondes;
     minutes_noir = minutes;
   }
@@ -129,92 +130,69 @@ void calibrate() {
   Serial.println("sequance = CALIBRATE");
 
   if (tour_blanc == true) {
-    // mySerial.print("n0.val=");
-    // mySerial.print(minutes_blanc);
-    envoi_ecran1("n0.val=", &minutes_blanc);
-    // mySerial.print("n1.val=");
-    // mySerial.print(secondes_blanc);
-    envoi_ecran1("n1.val=", &secondes_blanc);
+    variable = "n0.val=";
+    envoi_ecran1(&variable, &minutes_blanc);
+    variable = "n1.val=";
+    envoi_ecran1(&variable, &secondes_blanc);
 
     mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     mySerial.print("\"");
     mySerial.print("WHITE'S TURN");
     mySerial.print("\"");
     envoi_ecran();
-    joueur_blanc();
+    sequance = JOUEUR_BLANC;
   } else {
-    // mySerial.print("n0.val=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    // mySerial.print(minutes_noir);
-    envoi_ecran1("n0.val=", &minutes_noir);
-    // mySerial.print("n1.val=");
-    // mySerial.print(secondes_noir);
-    envoi_ecran1("n1.val=", &secondes_noir);
+    variable = "n0.val=";
+    envoi_ecran1(&variable, &minutes_noir);
+    variable = "n1.val=";
+    envoi_ecran1(&variable, &secondes_noir);
 
     mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
     mySerial.print("\"");
     mySerial.print("BLACK'S TURN");
     mySerial.print("\"");
     envoi_ecran();
-    joueur_noir();
+    sequance = JOUEUR_NOIR;
   }
 }
 
 void demarrage_partie() {
+
+  switch (timer_select) {
+    case 1:
+      minutes = 2;
+      break;
+    case 2:
+      minutes = 4;
+      break;
+    case 3:
+      minutes = 9;
+      break;
+    case 4:
+      minutes = 29;
+      break;
+    case 5:
+      minutes = 59;
+      break;
+  }
+  secondes = 60;
+
+  secondes_blanc = 60;
+  secondes_noir = 60;
+
+  secondes_blanc = secondes;
+  minutes_blanc = minutes;
+  secondes_noir = secondes;
+  minutes_noir = minutes;
+
+  tour = 0;
+  tour_blanc = true;
+  pion_selectionne = false;
+
   calibrate();
 
   reset_pos();
   Serial.println("sequance = START");
-
-  switch (timer_select) {
-    case 1:
-      minutes_blanc = 3;
-      minutes_noir = 3;
-      break;
-    case 2:
-      minutes_blanc = 5;
-      minutes_noir = 5;
-      break;
-    case 3:
-      minutes_blanc = 10;
-      minutes_noir = 10;
-      break;
-    case 4:
-      minutes_blanc = 30;
-      minutes_noir = 30;
-      break;
-    case 5:
-      minutes_blanc = 60;
-      minutes_noir = 60;
-      break;
-  }
-  secondes = 0;
-  secondes_blanc = 1;
-  secondes_noir = 1;
-
-  tour = 0;
-  tour_blanc = true;
-  case_choisie = false;
-  pion_selectionne = false;
-}
-
-void joueur_blanc() {
-  sequance = JOUEUR_BLANC;
-  Serial.println("JOUEUR_BLANC");
-  if (millis() - t > 995) {  // Display the white player clock
-    decompte();
-    envoi_ecran1("n0.val=", &minutes_blanc);
-    envoi_ecran1("n1.val=", &secondes_blanc);
-  }
-}
-
-void joueur_noir() {
-  sequance = JOUEUR_NOIR;
-  Serial.println("JOUEUR_NOIR");
-  if (millis() - t > 995) {  // Display the black player clock
-    decompte();
-    envoi_ecran1("n0.val=", &minutes_noir);
-    envoi_ecran1("n1.val=", &secondes_noir);
-  }
 }
 
 void dep_pion() {

@@ -54,7 +54,7 @@ extern int dir2;
 
 extern int pos_x;
 extern int pos_y;
-
+extern String variable;
 //***************************** VARIABLES POUR LE MENU ************************************************************
 extern int data[7];  // Déclaration d'un tableau d'entier
 extern byte sequance;
@@ -67,7 +67,6 @@ extern bool joueur_vs_joeur;
 extern byte j1_choix_pion;  // si j1_choix_pion = 0 => couleur des pions du J1  = pas definie ; si 1 => couleur = blancs ; si 2 => couleur = noir
 //***************************** VARIABLES POUR L'ETAT DE LA PARTIE ************************************************************
 extern bool tour_blanc;
-extern bool case_choisie;
 extern byte tour;
 //***************************** VARIABLES POUR LE TIMER ************************************************************
 extern int timer_select;
@@ -88,8 +87,7 @@ void dep_horizontal(int *temps, int *pas, int *dir);
 void reset_pos();
 void decompte();
 void envoi_ecran();
+void envoi_ecran1(String *variable, int *info);
 void calibrate();
 void demarrage_partie();
-void joueur_blanc();
-void joueur_noir();
 void dep_pion();

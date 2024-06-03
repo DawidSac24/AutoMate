@@ -27,6 +27,7 @@ int dir2;
 
 int pos_x;
 int pos_y;
+String variable;
 
 //***************************** VARIABLES POUR LE MENU ************************************************************
 int data[7];  // Déclaration d'un tableau d'entier
@@ -40,7 +41,6 @@ bool joueur_vs_joeur = true;
 byte j1_choix_pion;  // si j1_choix_pion = 0 => couleur des pions du J1  = pas definie ; si 1 => couleur = blancs ; si 2 => couleur = noir
 //***************************** VARIABLES POUR L'ETAT DE LA PARTIE ************************************************************
 bool tour_blanc = true;
-bool case_choisie = false;
 byte tour;
 //***************************** VARIABLES POUR LE TIMER ************************************************************
 int timer_select = 3;
@@ -136,30 +136,6 @@ void loop() {
             Serial.println(timer_select);
             break;
         }
-        switch (timer_select) {
-          case 1:
-            minutes_blanc = 3;
-            minutes_noir = 3;
-            break;
-          case 2:
-            minutes_blanc = 5;
-            minutes_noir = 5;
-            break;
-          case 3:
-            minutes_blanc = 10;
-            minutes_noir = 10;
-            break;
-          case 4:
-            minutes_blanc = 30;
-            minutes_noir = 30;
-            break;
-          case 5:
-            minutes_blanc = 60;
-            minutes_noir = 60;
-            break;
-        }
-        Serial.print("timer a ");
-        Serial.println(minutes_blanc);
         break;
       //**********************************************************  PAGE : Choix de la couleur de pion ********************************************************************
       case 5:
@@ -200,23 +176,26 @@ void loop() {
       //**********************************************************  PAGE : Play, choix de colonne *************************************************************************
       case 9:
         if (id_bouton > 1 && id_bouton < 10) {  // un des boutons pour le choix de la colonne à été actionné
-          if (tour != 2) {
-            tour++;
-          }
           if (tour == 2) {
             tour_blanc = !tour_blanc;
             tour = 0;
-          }
-          Serial.print("tour");
+          } else
+            tour++;
+          if (tour_blanc == true)
+            sequance = JOUEUR_BLANC;
+          else
+            sequance = JOUEUR_NOIR;
+            
+          Serial.print("tour ");
           Serial.println(tour);
-          Serial.print("tour_blanc");
+          Serial.print("tour_blanc ");
           Serial.println(tour_blanc);
 
           calibrate();
-          
-          Serial.print("colonne = ");
+
+          // Serial.print("colonne = ");
           colonne_select = id_bouton - 2;
-          Serial.println(colonne_select);
+          // Serial.println(colonne_select);
 
           x_dep = case_x[ligne_select] - x_precedent;
           y_dep = case_y[colonne_select] - y_precedent;
@@ -228,19 +207,44 @@ void loop() {
           x_precedent = case_x[ligne_select];
           y_precedent = case_y[colonne_select];
         } else if (id_bouton == 11) {
-        }                          // bouton actionné : paramètres
-        else if (id_bouton == 14)  // bouton actionné : retours
+        }                            // bouton actionné : paramètres
+        else if (id_bouton == 14) {  // bouton actionné : retours
+          tour--;
           calibrate();
+        }
         break;
       //**********************************************************  PAGE : Paramètres durent la parie *********************************************************************
       case 10:
         if (data[2] == 1)
           calibrate();
-        if (data[2] == 2)
+        if (data[2] == 2) {
           reset_pos();
-        x_precedent = 0;
-        y_precedent = 0;
+          x_precedent = 0;
+          y_precedent = 0;
+        }
         break;
     }
+  }
+  switch (sequance) {
+    case JOUEUR_BLANC:
+      if (millis() - t > 995) {  // Display the white player clock
+        decompte();
+        Serial.println("JOUEUR_BLANC");
+        variable = "n0.val=";
+        envoi_ecran1(&variable, &minutes_blanc);
+        variable = "n1.val=";
+        envoi_ecran1(&variable, &secondes_blanc);
+      }
+      break;
+    case JOUEUR_NOIR:
+      if (millis() - t > 995) {  // Display the black player clock
+        decompte();
+        Serial.println("JOUEUR_NOIR");
+        variable = "n0.val=";
+        envoi_ecran1(&variable, &minutes_noir);
+        variable = "n1.val=";
+        envoi_ecran1(&variable, &secondes_noir);
+      }
+      break;
   }
 }
