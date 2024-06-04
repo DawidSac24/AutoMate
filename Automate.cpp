@@ -31,19 +31,27 @@ void dep_vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
     delayMicroseconds(*temps);
   }
 }
-void envoi_ecran() {
-  mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
-  mySerial.write(0xff);
-  mySerial.write(0xff);
-}
 
-void envoi_ecran1(String *variable, int *info) {
+void envoi_ecran_val(String *variable, int *info) {
   Serial.println("evoi ecran =");
   Serial.println(*variable);
   Serial.println(*info);
 
   mySerial.print(*variable);
   mySerial.print(*info);
+  mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
+  mySerial.write(0xff);
+  mySerial.write(0xff);
+}
+void envoi_ecran_str(String *variable, String *info) {
+  Serial.println("evoi ecran =");
+  Serial.println(*variable);
+  Serial.println(*info);
+
+  mySerial.print(*variable);
+  mySerial.print("\"");
+  mySerial.print(*info);
+  mySerial.print("\"");
   mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
   mySerial.write(0xff);
   mySerial.write(0xff);
@@ -130,28 +138,26 @@ void calibrate() {
   Serial.println("sequance = CALIBRATE");
 
   if (tour_blanc == true) {
-    variable = "n0.val=";
-    envoi_ecran1(&variable, &minutes_blanc);
-    variable = "n1.val=";
-    envoi_ecran1(&variable, &secondes_blanc);
+    nom_variable = "n0.val=";
+    envoi_ecran_val(&nom_variable, &minutes_blanc);
+    nom_variable = "n1.val=";
+    envoi_ecran_val(&nom_variable, &secondes_blanc);
 
-    mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    mySerial.print("\"");
-    mySerial.print("WHITE'S TURN");
-    mySerial.print("\"");
-    envoi_ecran();
+    nom_variable = "t0.txt=";
+    information = "WHITE'S TURN";
+    envoi_ecran_str(&nom_variable, &information);
+
     sequance = JOUEUR_BLANC;
   } else {
-    variable = "n0.val=";
-    envoi_ecran1(&variable, &minutes_noir);
-    variable = "n1.val=";
-    envoi_ecran1(&variable, &secondes_noir);
+    nom_variable = "n0.val=";
+    envoi_ecran_val(&nom_variable, &minutes_noir);
+    nom_variable = "n1.val=";
+    envoi_ecran_val(&nom_variable, &secondes_noir);
 
-    mySerial.print("t0.txt=");  // envoi des minutes et secondes ==> calibrer le 2 decomptes (Arduino et Nextion)
-    mySerial.print("\"");
-    mySerial.print("BLACK'S TURN");
-    mySerial.print("\"");
-    envoi_ecran();
+    nom_variable = "t0.txt=";
+    information = "BLACK'S TURN";
+    envoi_ecran_str(&nom_variable, &information);
+
     sequance = JOUEUR_NOIR;
   }
 }
@@ -184,6 +190,9 @@ void demarrage_partie() {
   minutes_blanc = minutes;
   secondes_noir = secondes;
   minutes_noir = minutes;
+
+  x_precedent = 0;
+  y_precedent = 0;
 
   tour = 0;
   tour_blanc = true;
