@@ -218,7 +218,7 @@ void loop() {
           reset_pos();
           x_precedent = 0;
           y_precedent = 0;
-        }
+        } // a
         break;
     }
   }
