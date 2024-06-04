@@ -41,7 +41,7 @@ bool joueur_vs_joeur = true;
 byte j1_choix_pion;  // si j1_choix_pion = 0 => couleur des pions du J1  = pas definie ; si 1 => couleur = blancs ; si 2 => couleur = noir
 //***************************** VARIABLES POUR L'ETAT DE LA PARTIE ************************************************************
 bool tour_blanc = true;
-byte tour;
+byte tour = 0;
 //***************************** VARIABLES POUR LE TIMER ************************************************************
 int timer_select = 3;
 unsigned long t;
@@ -178,14 +178,11 @@ void loop() {
         if (id_bouton > 1 && id_bouton < 10) {  // un des boutons pour le choix de la colonne à été actionné
           if (tour == 2) {
             tour_blanc = !tour_blanc;
+            sequance = !sequance;
             tour = 0;
           } else
             tour++;
-          if (tour_blanc == true)
-            sequance = JOUEUR_BLANC;
-          else
-            sequance = JOUEUR_NOIR;
-            
+
           Serial.print("tour ");
           Serial.println(tour);
           Serial.print("tour_blanc ");

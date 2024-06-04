@@ -26,8 +26,8 @@
 #define START 1
 #define CALIBRATE 2
 #define PARAMETRES 3
-#define JOUEUR_BLANC 4
-#define JOUEUR_NOIR 5
+#define JOUEUR_BLANC 0
+#define JOUEUR_NOIR 1
 //****************** Constantes pour la sequance de deplacement *******************************************
 #define CHOIX_PION 0
 #define DEPLACEMENT_PION 1
