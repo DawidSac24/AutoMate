@@ -27,8 +27,6 @@ int dir2;
 
 int pos_x;
 int pos_y;
-String variable;
-
 //***************************** VARIABLES POUR LE MENU ************************************************************
 int data[7];  // Déclaration d'un tableau d'entier
 byte sequance;
@@ -39,6 +37,8 @@ int id_bouton;
 byte difficulty = 0;  // 0 => difficulté = facile
 bool joueur_vs_joeur = true;
 byte j1_choix_pion;  // si j1_choix_pion = 0 => couleur des pions du J1  = pas definie ; si 1 => couleur = blancs ; si 2 => couleur = noir
+String nom_variable;
+String information;
 //***************************** VARIABLES POUR L'ETAT DE LA PARTIE ************************************************************
 bool tour_blanc = true;
 byte tour = 0;
@@ -218,7 +218,7 @@ void loop() {
           reset_pos();
           x_precedent = 0;
           y_precedent = 0;
-        } // a
+        }
         break;
     }
   }
@@ -227,20 +227,20 @@ void loop() {
       if (millis() - t > 995) {  // Display the white player clock
         decompte();
         Serial.println("JOUEUR_BLANC");
-        variable = "n0.val=";
-        envoi_ecran1(&variable, &minutes_blanc);
-        variable = "n1.val=";
-        envoi_ecran1(&variable, &secondes_blanc);
+        nom_variable = "n0.val=";
+        envoi_ecran_val(&nom_variable, &minutes_blanc);
+        nom_variable = "n1.val=";
+        envoi_ecran_val(&nom_variable, &secondes_blanc);
       }
       break;
     case JOUEUR_NOIR:
       if (millis() - t > 995) {  // Display the black player clock
         decompte();
         Serial.println("JOUEUR_NOIR");
-        variable = "n0.val=";
-        envoi_ecran1(&variable, &minutes_noir);
-        variable = "n1.val=";
-        envoi_ecran1(&variable, &secondes_noir);
+        nom_variable = "n0.val=";
+        envoi_ecran_val(&nom_variable, &minutes_noir);
+        nom_variable = "n1.val=";
+        envoi_ecran_val(&nom_variable, &secondes_noir);
       }
       break;
   }
