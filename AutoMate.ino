@@ -176,7 +176,7 @@ void loop() {
       //**********************************************************  PAGE : Play, choix de colonne *************************************************************************
       case 9:
         if (id_bouton > 1 && id_bouton < 10) {  // un des boutons pour le choix de la colonne à été actionné
-          if (tour == 2) {
+          if (tour >= 1) {
             tour_blanc = !tour_blanc;
             sequance = !sequance;
             tour = 0;
