@@ -35,6 +35,30 @@
 #define EASY 1
 #define NORMAL 2
 #define HARD 3
+//******************************************* VALEURS DES PIONS ***************************************************************
+#define ROI_B 6
+#define ROI_N -6
+#define DAME_B 5
+#define DAME_N -5
+#define TOUR_B 4
+#define TOUR_N -4
+#define FOU_B 3
+#define FOU_N -3
+#define CHEVAL_B 2
+#define CHEVAL_N -2
+#define PION_B 1
+#define PION_N -1
+//******************************************* PLANCHE DE DEPART ***************************************************************
+const int planche[8][8] = {
+  { TOUR_N, CHEVAL_N, FOU_N, DAME_N, ROI_N, FOU_N, CHEVAL_N, TOUR_N },
+  { PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N },
+  {},
+  {},
+  {},
+  {},
+  { PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B },
+  { TOUR_B, CHEVAL_B, FOU_B, DAME_B, ROI_B, FOU_B, CHEVAL_B, TOUR_B },
+};
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 extern int case_x[8];
@@ -93,3 +117,4 @@ void envoi_ecran_str(String *variable, String *info);
 void calibrate();
 void demarrage_partie();
 void dep_pion();
+bool pion();

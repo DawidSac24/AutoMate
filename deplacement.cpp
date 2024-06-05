@@ -1,4 +1,4 @@
-#include "Automate.h"
+#include "global.h"
 
 void dep_horizontal(int *temps, int *pas, int *dir) {  // dir 1 = gauche et dir 2 = droite
   digitalWrite(DIR1, *dir);

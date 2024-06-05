@@ -7,7 +7,7 @@
 //*****************************************************************************************************************************
 
 //********************************************** LIBRAIRIES *******************************************************************
-#include "Automate.h"
+#include "global.h"
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 int case_x[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
@@ -18,6 +18,9 @@ int x_dep;
 int y_dep;
 int colonne_select;
 int ligne_select;
+int colonne_precedent;
+int ligne_precedent;
+
 bool pion_selectionne = false;
 
 int vit_dep = 1800;  // milisecondesc
@@ -78,6 +81,14 @@ void setup() {
 
   while (!Serial) {}
   // DDRC |= B00001111;
+
+  for (int i = 0; i < 8; i++) {
+    for (int j = 0; j < 8; j++) {
+      Serial.print(planche[i][j]);
+    }
+    Serial.println(" ");
+  }
+
   reset_pos();
   // digitalWrite(AIMANT, 1);
 
@@ -86,6 +97,7 @@ void setup() {
 }
 
 void loop() {
+
   if (mySerial.available() > 0) {
     for (i = 0; i < 7; i++) {
       data[i] = mySerial.read();
@@ -203,6 +215,8 @@ void loop() {
 
           x_precedent = case_x[ligne_select];
           y_precedent = case_y[colonne_select];
+          ligne_precedent = x_precedent;
+          colonne_precedent = y_precedent;
         } else if (id_bouton == 11) {
         }                            // bouton actionné : paramètres
         else if (id_bouton == 14) {  // bouton actionné : retours

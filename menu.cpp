@@ -1,4 +1,4 @@
-#include "Automate.h"
+#include "global.h"
 
 void envoi_ecran_val(String *variable, int *info) {
   Serial.println("evoi ecran =");
