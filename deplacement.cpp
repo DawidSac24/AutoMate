@@ -79,6 +79,9 @@ void reset_pos() {
 
 void dep_pion() {
 
+  x_dep = case_x[colonne_select] - x_precedent;
+  y_dep = case_y[ligne_select] - y_precedent;
+
   Serial.print("x dep = ");
   Serial.println(x_dep);
   Serial.print("y dep = ");
@@ -189,4 +192,66 @@ void dep_pion() {
     }
   }
   digitalWrite(AIMANT, 0);
+
+  x_precedent = case_x[colonne_select];
+  y_precedent = case_y[ligne_select];
+
+  pion_selectionne = !pion_selectionne;
+}
+
+void demo() {
+  reset_pos();
+  // e2 -> e4
+  pion_selectionne = false;
+  ligne_select = 4;
+  colonne_select = 1;
+  dep_pion();
+
+  ligne_select = 4;
+  colonne_select = 3;
+  dep_pion();
+
+  // e7 -> e5
+  ligne_select = 4;
+  colonne_select = 6;
+  dep_pion();
+
+  ligne_select = 4;
+  colonne_select = 4;
+  dep_pion();
+
+  // g1 -> f3
+  ligne_select = 6;
+  colonne_select = 0;
+  dep_pion();
+
+  ligne_select = 5;
+  colonne_select = 2;
+  dep_pion();
+
+  // b8 -> c6
+  ligne_select = 0;
+  colonne_select = 7;
+  dep_pion();
+
+  ligne_select = 2;
+  colonne_select = 5;
+  dep_pion();
+
+  // d2 -> d4
+  ligne_select = 3;
+  colonne_select = 1;
+  dep_pion();
+
+  ligne_select = 3;
+  colonne_select = 3;
+  dep_pion();
+
+
+// *************************************************** ELIM PION ************************************************
+  // d4 -> mort 4
+  ligne_select = 3;
+  colonne_select = 3;
+  dep_pion();
+// *************************************************** ELIM PION ************************************************
 }

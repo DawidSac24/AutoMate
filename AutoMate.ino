@@ -103,9 +103,7 @@ void loop() {
       //**********************************************************  PAGE : Menu principal *********************************************************************************
       case 1:
         if (id_bouton == 2)
-          joueur_vs_joeur = false;
-        else if (id_bouton == 3)
-          joueur_vs_joeur = true;
+          demo();
         break;
       //**********************************************************  PAGE : Choix de la difficulté de la partie ************************************************************
       case 3:
@@ -194,15 +192,9 @@ void loop() {
           colonne_select = id_bouton - 2;
           // Serial.println(colonne_select);
 
-          x_dep = case_x[ligne_select] - x_precedent;
-          y_dep = case_y[colonne_select] - y_precedent;
-
           dep_pion();
 
-          pion_selectionne = !pion_selectionne;
 
-          x_precedent = case_x[ligne_select];
-          y_precedent = case_y[colonne_select];
         } else if (id_bouton == 11) {
         }                            // bouton actionné : paramètres
         else if (id_bouton == 14) {  // bouton actionné : retours
