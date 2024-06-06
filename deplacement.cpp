@@ -201,14 +201,33 @@ void dep_pion() {
 
 void demo() {
   reset_pos();
-  // e2 -> e4
   pion_selectionne = false;
-  ligne_select = 4;
+
+  // d2 -> d4
+  ligne_select = 3;
   colonne_select = 1;
   dep_pion();
 
-  ligne_select = 4;
+  ligne_select = 3;
   colonne_select = 3;
+  dep_pion();
+
+  // g8 -> f6
+  ligne_select = 6;
+  colonne_select = 7;
+  dep_pion();
+
+  ligne_select = 5;
+  colonne_select = 2;
+  dep_pion();
+
+  // b1 -> d2
+  ligne_select = 1;
+  colonne_select = 0;
+  dep_pion();
+
+  ligne_select = 3;
+  colonne_select = 1;
   dep_pion();
 
   // e7 -> e5
@@ -220,38 +239,33 @@ void demo() {
   colonne_select = 4;
   dep_pion();
 
-  // g1 -> f3
-  ligne_select = 6;
-  colonne_select = 0;
+  // *************************************************** ELIM PION ************************************************
+  // e5 -> mort
+  ligne_select = 4;
+  colonne_select = 4;
   dep_pion();
 
-  ligne_select = 5;
-  colonne_select = 2;
-  dep_pion();
+  dir_moteur = 2;
+  y_dep = 1000;
+  dep_vertical(&vit_dep, &y_dep, &dir_moteur);
+  pion_selectionne = false;
+  // *************************************************** ELIM PION ************************************************
 
-  // b8 -> c6
-  ligne_select = 0;
-  colonne_select = 7;
-  dep_pion();
-
-  ligne_select = 2;
-  colonne_select = 5;
-  dep_pion();
-
-  // d2 -> d4
-  ligne_select = 3;
-  colonne_select = 1;
-  dep_pion();
-
+  // d4 -> e5
   ligne_select = 3;
   colonne_select = 3;
   dep_pion();
 
+  ligne_select = 4;
+  colonne_select = 4;
+  dep_pion();
 
-// *************************************************** ELIM PION ************************************************
-  // d4 -> mort 4
+  // f6 -> e5
   ligne_select = 3;
   colonne_select = 3;
   dep_pion();
-// *************************************************** ELIM PION ************************************************
+
+  ligne_select = 4;
+  colonne_select = 4;
+  dep_pion();
 }
