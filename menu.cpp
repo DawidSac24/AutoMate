@@ -1,9 +1,9 @@
 #include "global.h"
 
 void envoi_ecran_val(String *variable, int *info) {
-  Serial.println("evoi ecran =");
-  Serial.println(*variable);
-  Serial.println(*info);
+  // Serial.println("evoi ecran =");
+  // Serial.println(*variable);
+  // Serial.println(*info);
 
   mySerial.print(*variable);
   mySerial.print(*info);
@@ -12,9 +12,9 @@ void envoi_ecran_val(String *variable, int *info) {
   mySerial.write(0xff);
 }
 void envoi_ecran_str(String *variable, String *info) {
-  Serial.println("evoi ecran =");
-  Serial.println(*variable);
-  Serial.println(*info);
+  // Serial.println("evoi ecran =");
+  // Serial.println(*variable);
+  // Serial.println(*info);
 
   mySerial.print(*variable);
   mySerial.print("\"");
@@ -58,7 +58,7 @@ void decompte() {  //
 
 void calibrate() {
 
-  Serial.println("sequance = CALIBRATE");
+  // Serial.println("sequance = CALIBRATE");
 
   if (tour_blanc == true) {
     nom_variable = "n0.val=";

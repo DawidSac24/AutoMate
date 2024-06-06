@@ -10,8 +10,8 @@
 #include "global.h"
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
-int case_x[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
-int case_y[8] = { 0, 200, 400, 600, 800, 1000, 1200, 1400 };
+int case_x[8] = { 0, 200, 400, 600, 800, 1000, 1200, 1400 };
+int case_y[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
 int x_precedent;
 int y_precedent;
 int x_dep;
@@ -218,7 +218,7 @@ void loop() {
     case JOUEUR_BLANC:
       if (millis() - t > 995) {  // Display the white player clock
         decompte();
-        Serial.println("JOUEUR_BLANC");
+        // Serial.println("JOUEUR_BLANC");
         nom_variable = "n0.val=";
         envoi_ecran_val(&nom_variable, &minutes_blanc);
         nom_variable = "n1.val=";
@@ -228,7 +228,7 @@ void loop() {
     case JOUEUR_NOIR:
       if (millis() - t > 995) {  // Display the black player clock
         decompte();
-        Serial.println("JOUEUR_NOIR");
+        // Serial.println("JOUEUR_NOIR");
         nom_variable = "n0.val=";
         envoi_ecran_val(&nom_variable, &minutes_noir);
         nom_variable = "n1.val=";
