@@ -176,7 +176,10 @@ void loop() {
         if (id_bouton > 1 && id_bouton < 10) {  // un des boutons pour le choix de la colonne à été actionné
           if (tour >= 1) {
             tour_blanc = !tour_blanc;
-            sequance = !sequance;
+            if (sequance == JOUEUR_BLANC)
+              sequance = JOUEUR_NOIR;
+            else
+              sequance = JOUEUR_BLANC;
             tour = 0;
           } else
             tour++;
