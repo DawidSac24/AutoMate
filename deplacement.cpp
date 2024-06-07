@@ -33,48 +33,48 @@ void dep_vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
 }
 
 void reset_pos() {
-  // dep vers l'arriere
-  vit_dep = 1000;
+  // // dep vers l'arriere
+  // vit_dep = 1000;
 
-  nmbre_pas = 50;
-  dir_moteur = 1;
-  dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
+  // nmbre_pas = 50;
+  // dir_moteur = 1;
+  // dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
 
-  // dep vers la gauche
-  nmbre_pas = 80;
-  dep_horizontal(&vit_dep, &nmbre_pas, 1);
+  // // dep vers la gauche
+  // nmbre_pas = 80;
+  // dep_horizontal(&vit_dep, &nmbre_pas, 1);
 
-  // aimant va vers l'avant
-  dir_moteur = 2;
-  digitalWrite(DIR1, dir_moteur);
-  digitalWrite(DIR2, !dir_moteur);
-  while (digitalRead(FCA)) {
-    digitalWrite(STEP1, 1);
-    digitalWrite(STEP2, 1);
-    delayMicroseconds(vit_dep);
-    digitalWrite(STEP1, 0);
-    digitalWrite(STEP2, 0);
-    delayMicroseconds(vit_dep);
-  }
+  // // aimant va vers l'avant
+  // dir_moteur = 2;
+  // digitalWrite(DIR1, dir_moteur);
+  // digitalWrite(DIR2, !dir_moteur);
+  // while (digitalRead(FCA)) {
+  //   digitalWrite(STEP1, 1);
+  //   digitalWrite(STEP2, 1);
+  //   delayMicroseconds(vit_dep);
+  //   digitalWrite(STEP1, 0);
+  //   digitalWrite(STEP2, 0);
+  //   delayMicroseconds(vit_dep);
+  // }
 
-  // aimant va a droite
-  dir_moteur = 2;
-  digitalWrite(DIR1, dir_moteur);
-  digitalWrite(DIR2, dir_moteur);
-  while (digitalRead(FCB)) {
-    digitalWrite(STEP1, 1);
-    digitalWrite(STEP2, 1);
-    delayMicroseconds(vit_dep);
+  // // aimant va a droite
+  // dir_moteur = 2;
+  // digitalWrite(DIR1, dir_moteur);
+  // digitalWrite(DIR2, dir_moteur);
+  // while (digitalRead(FCB)) {
+  //   digitalWrite(STEP1, 1);
+  //   digitalWrite(STEP2, 1);
+  //   delayMicroseconds(vit_dep);
 
-    digitalWrite(STEP1, 0);
-    digitalWrite(STEP2, 0);
-    delayMicroseconds(vit_dep);
-  }
-  nmbre_pas = 50;  //                              deplacement vers la case H1
-  dir_moteur = 1;
-  dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
-  nmbre_pas = 40;
-  dep_horizontal(&vit_dep, &nmbre_pas, 2);
+  //   digitalWrite(STEP1, 0);
+  //   digitalWrite(STEP2, 0);
+  //   delayMicroseconds(vit_dep);
+  // }
+  // nmbre_pas = 50;  //                              deplacement vers la case H1
+  // dir_moteur = 1;
+  // dep_vertical(&vit_dep, &nmbre_pas, &dir_moteur);
+  // nmbre_pas = 40;
+  // dep_horizontal(&vit_dep, &nmbre_pas, 2);
 }
 
 void dep_pion() {
