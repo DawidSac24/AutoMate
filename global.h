@@ -117,4 +117,4 @@ void envoi_ecran_str(String *variable, String *info);
 void calibrate();
 void demarrage_partie();
 void dep_pion();
-bool pion();
+bool verif_dep();

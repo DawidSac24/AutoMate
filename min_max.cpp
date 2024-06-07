@@ -1,6 +1,8 @@
 //********************************************** LIBRAIRIES *******************************************************************
 #include "global.h"
 
-bool pion() {
-  if (colonne_select == colonne_precedent + 2 || colonne_select == colonne_precedent + 1 &&
+bool verif_dep() {
+  if (pion_selectionne == PION_B || pion_selectionne == PION_N) {
+    
+  }
 }
