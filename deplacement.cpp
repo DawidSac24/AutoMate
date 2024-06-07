@@ -85,15 +85,23 @@ void dep_pion() {
   } else {
     tour++;
   }
-  Serial.print("tour ");
-  Serial.println(tour);
-  Serial.print("tour_blanc ");
-  Serial.println(tour_blanc);
+  // Serial.print("tour ");
+  // Serial.println(tour);
+  // Serial.print("tour_blanc ");
+  // Serial.println(tour_blanc);
 
   calibrate();
 
   x_dep = case_x[colonne_select] - x_precedent;
   y_dep = case_y[ligne_select] - y_precedent;
+
+  x_precedent = case_x[colonne_select];
+  y_precedent = case_y[ligne_select];
+  colonne_precedent = colonne_select;
+  ligne_precedent = ligne_select;
+
+  planche_precedent[ligne_select][colonne_select] = planche[ligne_precedent][colonne_precedent];
+  planche[ligne_select][colonne_select] = planche_precedent[ligne_precedent][colonne_precedent];
 
   // Serial.print("x dep = ");
   // Serial.println(x_dep);
@@ -206,11 +214,6 @@ void dep_pion() {
       }
     }
     digitalWrite(AIMANT, 0);
-
-    x_precedent = case_x[colonne_select];
-    y_precedent = case_y[ligne_select];
-    colonne_precedent = colonne_select;
-    ligne_precedent = ligne_select;
 
     pion_selectionne = !pion_selectionne;
   } else {
