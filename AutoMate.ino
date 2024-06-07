@@ -9,9 +9,11 @@
 //********************************************** LIBRAIRIES *******************************************************************
 #include "global.h"
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
+//******************************************* PLANCHE  ************************************************************************
+int planche[8][8];
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
-int case_x[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
-int case_y[8] = { 0, 200, 400, 600, 800, 1000, 1200, 1400 };
+int case_x[8] = { 0, 200, 400, 600, 800, 1000, 1200, 1400 };
+int case_y[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
 int x_precedent;
 int y_precedent;
 int x_dep;
@@ -20,7 +22,6 @@ int colonne_select;
 int ligne_select;
 int colonne_precedent;
 int ligne_precedent;
-
 bool pion_selectionne = false;
 
 int vit_dep = 1800;  // milisecondesc
@@ -81,14 +82,6 @@ void setup() {
 
   while (!Serial) {}
   // DDRC |= B00001111;
-
-  for (int i = 0; i < 8; i++) {
-    for (int j = 0; j < 8; j++) {
-      Serial.print(planche[i][j]);
-    }
-    Serial.println(" ");
-  }
-
   reset_pos();
   // digitalWrite(AIMANT, 1);
 
@@ -97,7 +90,6 @@ void setup() {
 }
 
 void loop() {
-
   if (mySerial.available() > 0) {
     for (i = 0; i < 7; i++) {
       data[i] = mySerial.read();
@@ -114,10 +106,9 @@ void loop() {
         break;
       //**********************************************************  PAGE : Menu principal *********************************************************************************
       case 1:
-        if (id_bouton == 2)
-          joueur_vs_joeur = false;
-        else if (id_bouton == 3)
-          joueur_vs_joeur = true;
+        if (id_bouton == 2) {
+          // demo();
+        }
         break;
       //**********************************************************  PAGE : Choix de la difficulté de la partie ************************************************************
       case 3:
@@ -179,47 +170,21 @@ void loop() {
         if (id_bouton == 10 || id_bouton == 11) {
         }  // bouton actionné : retour OU paramètres
         else {
-          Serial.print("ligne = ");
+          // Serial.print("ligne = ");
           ligne_select = id_bouton - 2;
-          Serial.println(ligne_select);
+          // Serial.println(ligne_select);
           calibrate();
         }
         break;
       //**********************************************************  PAGE : Play, choix de colonne *************************************************************************
       case 9:
-        if (id_bouton > 1 && id_bouton < 10) {  // un des boutons pour le choix de la colonne à été actionné
-          if (tour >= 1) {
-            tour_blanc = !tour_blanc;
-            sequance = !sequance;
-            tour = 0;
-          } else
-            tour++;
-
-          Serial.print("tour ");
-          Serial.println(tour);
-          Serial.print("tour_blanc ");
-          Serial.println(tour_blanc);
-
-          calibrate();
-
+        if (id_bouton <= 2 && id_bouton >= 9) {
           // Serial.print("colonne = ");
           colonne_select = id_bouton - 2;
           // Serial.println(colonne_select);
 
-          x_dep = case_x[ligne_select] - x_precedent;
-          y_dep = case_y[colonne_select] - y_precedent;
-
           dep_pion();
-
-          pion_selectionne = !pion_selectionne;
-
-          x_precedent = case_x[ligne_select];
-          y_precedent = case_y[colonne_select];
-          ligne_precedent = x_precedent;
-          colonne_precedent = y_precedent;
-        } else if (id_bouton == 11) {
-        }                            // bouton actionné : paramètres
-        else if (id_bouton == 14) {  // bouton actionné : retours
+        } else if (id_bouton == 14) {  // bouton actionné : retours
           tour--;
           calibrate();
         }
@@ -240,17 +205,29 @@ void loop() {
     case JOUEUR_BLANC:
       if (millis() - t > 995) {  // Display the white player clock
         decompte();
-        Serial.println("JOUEUR_BLANC");
+        // Serial.println("JOUEUR_BLANC");
         nom_variable = "n0.val=";
         envoi_ecran_val(&nom_variable, &minutes_blanc);
         nom_variable = "n1.val=";
         envoi_ecran_val(&nom_variable, &secondes_blanc);
+
+        for (int j = 0; j > 8; j++) {
+          Serial.print(j);
+        }
+        for (int i = 0; i > 8; i++) {
+          Serial.print(i);
+          for (int j = 0; j > 8; j++) {
+            Serial.print(planche[i][j]);
+          }
+          Serial.println(" ");
+        }
+        Serial.println("*************************************************************************");
       }
       break;
     case JOUEUR_NOIR:
       if (millis() - t > 995) {  // Display the black player clock
         decompte();
-        Serial.println("JOUEUR_NOIR");
+        // Serial.println("JOUEUR_NOIR");
         nom_variable = "n0.val=";
         envoi_ecran_val(&nom_variable, &minutes_noir);
         nom_variable = "n1.val=";

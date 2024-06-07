@@ -49,7 +49,7 @@
 #define PION_B 1
 #define PION_N -1
 //******************************************* PLANCHE DE DEPART ***************************************************************
-const int planche[8][8] = {
+const int planche_depart[8][8] = {
   { TOUR_N, CHEVAL_N, FOU_N, DAME_N, ROI_N, FOU_N, CHEVAL_N, TOUR_N },
   { PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N },
   {},
@@ -59,6 +59,8 @@ const int planche[8][8] = {
   { PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B },
   { TOUR_B, CHEVAL_B, FOU_B, DAME_B, ROI_B, FOU_B, CHEVAL_B, TOUR_B },
 };
+//******************************************* PLANCHE  ************************************************************************
+extern int planche[8][8];
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 extern int case_x[8];
@@ -70,6 +72,9 @@ extern int y_dep;
 extern int colonne_select;
 extern int ligne_select;
 extern bool pion_selectionne;
+extern int colonne_precedent;
+extern int ligne_precedent;
+
 
 extern int vit_dep;  // milisecondesc
 extern int nmbre_pas;
@@ -117,4 +122,5 @@ void envoi_ecran_str(String *variable, String *info);
 void calibrate();
 void demarrage_partie();
 void dep_pion();
+void elim_pion(int colonne, int ligne);
 bool verif_dep();

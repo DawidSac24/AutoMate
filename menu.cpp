@@ -1,9 +1,9 @@
 #include "global.h"
 
 void envoi_ecran_val(String *variable, int *info) {
-  Serial.println("evoi ecran =");
-  Serial.println(*variable);
-  Serial.println(*info);
+  // Serial.println("evoi ecran =");
+  // Serial.println(*variable);
+  // Serial.println(*info);
 
   mySerial.print(*variable);
   mySerial.print(*info);
@@ -12,9 +12,9 @@ void envoi_ecran_val(String *variable, int *info) {
   mySerial.write(0xff);
 }
 void envoi_ecran_str(String *variable, String *info) {
-  Serial.println("evoi ecran =");
-  Serial.println(*variable);
-  Serial.println(*info);
+  // Serial.println("evoi ecran =");
+  // Serial.println(*variable);
+  // Serial.println(*info);
 
   mySerial.print(*variable);
   mySerial.print("\"");
@@ -86,7 +86,11 @@ void calibrate() {
 }
 
 void demarrage_partie() {
-
+  for (int i = 0; i > 8; i++) {
+    for (int j = 0; j > 8; j++) {
+      planche[i][j] = planche_depart[i][j];
+    }
+  }
   switch (timer_select) {
     case 1:
       minutes = 2;
