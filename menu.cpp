@@ -86,23 +86,23 @@ void calibrate() {
 }
 
 void demarrage_partie() {
-  // switch (timer_select) {
-  //   case 1:
-  //     minutes = 2;
-  //     break;
-  //   case 2:
-  //     minutes = 4;
-  //     break;
-  //   case 3:
-  //     minutes = 9;
-  //     break;
-  //   case 4:
-  //     minutes = 29;
-  //     break;
-  //   case 5:
-  //     minutes = 59;
-  //     break;
-  // }
+  switch (timer_select) {
+    case 1:
+      minutes = 2;
+      break;
+    case 2:
+      minutes = 4;
+      break;
+    case 3:
+      minutes = 9;
+      break;
+    case 4:
+      minutes = 29;
+      break;
+    case 5:
+      minutes = 59;
+      break;
+  }
   secondes = 60;
 
   secondes_blanc = 60;
@@ -130,16 +130,4 @@ void demarrage_partie() {
       planche_precedent[i][j] = planche_depart[i][j];
     }
   }
-  for (int j = 0; j < 9; j++) {  // affichage de l'état de la planche
-    Serial.print(j);
-  }
-  Serial.println(" ");
-  for (int i = 0; i < 8; i++) {
-    Serial.print(i + 1);
-    for (int j = 0; j < 8; j++) {
-      Serial.print(planche_precedent[i][j]);
-    }
-    Serial.println(" ");
-  }
-  Serial.println("*************************************************************************");
 }

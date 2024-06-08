@@ -10,19 +10,11 @@
 #include "global.h"
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //******************************************* PLANCHE DE DEPART ***************************************************************
-const int planche_depart[8][8] = {
-  { TOUR_N, CHEVAL_N, FOU_N, DAME_N, ROI_N, FOU_N, CHEVAL_N, TOUR_N },
-  { PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N },
-  {},
-  {},
-  {},
-  {},
-  { PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B },
-  { TOUR_B, CHEVAL_B, FOU_B, DAME_B, ROI_B, FOU_B, CHEVAL_B, TOUR_B },
-};
+extern const int planche_depart[8][8];
 //******************************************* PLANCHE  ************************************************************************
 int planche[8][8];
 int planche_precedent[8][8];
+int pion_tempo;
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 int case_x[8] = { 0, 200, 400, 600, 800, 1000, 1200, 1400 };
 int case_y[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
@@ -111,7 +103,7 @@ void loop() {
   if (mySerial.available() > 0) {
     for (i = 0; i < 7; i++) {
       data[i] = mySerial.read();
-      // Serial.println(data[i]);
+      Serial.println(data[i]);
     }
     page = data[1];
     id_bouton = data[2];
@@ -196,8 +188,7 @@ void loop() {
         break;
       //**********************************************************  PAGE : Play, choix de colonne *************************************************************************
       case 9:
-        if (id_bouton <= 2 && id_bouton >= 9) {
-          // Serial.print("colonne = ");
+        if (id_bouton > 1 && id_bouton < 10) {  // un des boutons pour le choix de la colonne à été actionné          // Serial.print("colonne = ");
           colonne_select = id_bouton - 2;
           // Serial.println(colonne_select);
 
@@ -229,18 +220,13 @@ void loop() {
         nom_variable = "n1.val=";
         envoi_ecran_val(&nom_variable, &secondes_blanc);
 
-        // for (int j = 0; j < 9; j++) {  // affichage de l'état de la planche
-        //   Serial.print(j);
-        // }
-        // Serial.println(" ");
-        // for (int i = 0; i < 8; i++) {
-        //   Serial.print(i + 1);
-        //   for (int j = 0; j < 8; j++) {
-        //     Serial.print(planche_precedent[i][j]);
-        //   }
-        //   Serial.println(" ");
-        // }
-        // Serial.println("*************************************************************************");
+        for (int i = 0; i < 8; i++) {
+          for (int j = 0; j < 8; j++) {
+            Serial.print(planche[i][j]);
+          }
+          Serial.println(" ");
+        }
+        Serial.println("*************************************************************************");
       }
       break;
     case JOUEUR_NOIR:
@@ -252,18 +238,13 @@ void loop() {
         nom_variable = "n1.val=";
         envoi_ecran_val(&nom_variable, &secondes_noir);
 
-        // for (int j = 0; j < 9; j++) {  // affichage de l'état de la planche
-        //   Serial.print(j);
-        // }
-        // Serial.println(" ");
-        // for (int i = 0; i < 8; i++) {
-        //   Serial.print(i + 1);
-        //   for (int j = 0; j < 8; j++) {
-        //     Serial.print(planche[i][j]);
-        //   }
-        //   Serial.println(" ");
-        // }
-        // Serial.println("*************************************************************************");
+        for (int i = 0; i < 8; i++) {
+          for (int j = 0; j < 8; j++) {
+            Serial.print(planche[i][j]);
+          }
+          Serial.println(" ");
+        }
+        Serial.println("*************************************************************************");
       }
       break;
   }

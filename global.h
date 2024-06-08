@@ -49,10 +49,20 @@
 #define PION_B 1
 #define PION_N -1
 //******************************************* PLANCHE DE DEPART ***************************************************************
-extern const int planche_depart[8][8];
+const int planche_depart[8][8] = {
+  { TOUR_B, CHEVAL_B, FOU_B, DAME_B, ROI_B, FOU_B, CHEVAL_B, TOUR_B },
+  { PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B },
+  {},
+  {},
+  {},
+  {},
+  { PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N },
+  { TOUR_N, CHEVAL_N, FOU_N, DAME_N, ROI_N, FOU_N, CHEVAL_N, TOUR_N },
+};
 //******************************************* PLANCHE  ************************************************************************
 extern int planche[8][8];
 extern int planche_precedent[8][8];
+extern int pion_tempo;
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 extern int case_x[8];
