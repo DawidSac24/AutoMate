@@ -190,6 +190,7 @@ void dep_pion() {
       y_dep = 0;
       dep_vertical(&vit_dep, &x, &dir_moteur);
     }
+    delay(1000);
   }
   digitalWrite(AIMANT, 0);
 
