@@ -90,8 +90,6 @@ void dep_pion() {
   x_dep = case_x[colonne_select] - x_precedent;
   y_dep = case_y[ligne_select] - y_precedent;
 
-  planche[colonne_precedent][ligne_precedent] = planche[colonne_select][ligne_select];
-  planche[colonne_select][ligne_select] = planche_precedent[colonne_select][ligne_select];
 
   if (pion_selectionne == false) {
     vit_dep = 1000;
@@ -114,6 +112,10 @@ void dep_pion() {
 
     verif_dep();
     if (verif_dep() == true) {
+      Serial.println("dep veriie");
+      planche[colonne_select][ligne_select] = planche[colonne_precedent][ligne_precedent];
+      planche[colonne_precedent][ligne_precedent] = 0;
+
       digitalWrite(AIMANT, 1);
       vit_dep = 4000;
       if (x_dep > 0) {
@@ -184,6 +186,8 @@ void dep_pion() {
       envoi_ecran_str(&nom_variable, &information);
     }
   }
+
+
   x_precedent = case_x[colonne_select];
   y_precedent = case_y[ligne_select];
   colonne_precedent = colonne_select;
@@ -191,5 +195,13 @@ void dep_pion() {
 
   pion_selectionne = !pion_selectionne;
 }
-void elim_pion(int colonne, int ligne) {
+bool elim_pion(int colonne, int ligne) {
+  if (planche[colonne][ligne] != 0) {
+    if (pions_elimines == 8) {
+      
+      envoi_ecran_str(&nom_variable, &information);
+    }
+    y_dep = case_y[ligne] - y_precedent;
+  } else
+    return false;
 }

@@ -124,5 +124,5 @@ void envoi_ecran_str(String *variable, String *info);
 void calibrate();
 void demarrage_partie();
 void dep_pion();
-void elim_pion(int colonne, int ligne);
+bool elim_pion(int colonne, int ligne);
 bool verif_dep();
