@@ -90,9 +90,8 @@ void dep_pion() {
   x_dep = case_x[colonne_select] - x_precedent;
   y_dep = case_y[ligne_select] - y_precedent;
 
-
   if (pion_selectionne == false) {
-    vit_dep = 1000;
+    vit_dep = 0;
 
     if (x_dep > 0) {
       dep_horizontal(&vit_dep, &x_dep, 1);
@@ -117,7 +116,7 @@ void dep_pion() {
       planche[colonne_precedent][ligne_precedent] = 0;
 
       digitalWrite(AIMANT, 1);
-      vit_dep = 4000;
+      vit_dep = 0;
       if (x_dep > 0) {
         x_dep = x_dep - 100;
         dep_horizontal(&vit_dep, &x, 1);

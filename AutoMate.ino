@@ -10,7 +10,16 @@
 #include "global.h"
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //******************************************* PLANCHE DE DEPART ***************************************************************
-extern const int planche_depart[8][8];
+const int planche_depart[8][8] = {
+  { TOUR_B, CHEVAL_B, FOU_B, DAME_B, ROI_B, FOU_B, CHEVAL_B, TOUR_B },
+  { PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B },
+  {},
+  {},
+  {},
+  {},
+  { PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N },
+  { TOUR_N, CHEVAL_N, FOU_N, DAME_N, ROI_N, FOU_N, CHEVAL_N, TOUR_N },
+};
 //******************************************* PLANCHE  ************************************************************************
 int planche[8][8];
 int planche_precedent[8][8];
@@ -224,6 +233,7 @@ void loop() {
         for (int i = 0; i < 8; i++) {
           for (int j = 0; j < 8; j++) {
             Serial.print(planche[i][j]);
+            Serial.print("  ");
           }
           Serial.println(" ");
         }
@@ -242,6 +252,7 @@ void loop() {
         for (int i = 0; i < 8; i++) {
           for (int j = 0; j < 8; j++) {
             Serial.print(planche[i][j]);
+            Serial.print("  ");
           }
           Serial.println(" ");
         }
