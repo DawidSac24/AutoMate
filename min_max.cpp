@@ -10,6 +10,7 @@ bool verif_dep() {
   Serial.println(colonne_precedent);
   Serial.print("ligne_precedent ");
   Serial.println(ligne_precedent);
+  
   switch (sequance) {
     case JOUEUR_BLANC:
       switch (pion_selectionne) {

@@ -198,7 +198,8 @@ void dep_pion() {
 bool elim_pion(int colonne, int ligne) {
   if (planche[colonne][ligne] != 0) {
     if (pions_elimines == 8) {
-      
+      nom_variable = "page=";
+      information = "DEPLACEMENT FAUX";
       envoi_ecran_str(&nom_variable, &information);
     }
     y_dep = case_y[ligne] - y_precedent;
