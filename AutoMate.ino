@@ -48,6 +48,7 @@ byte j1_choix_pion;  // si j1_choix_pion = 0 => couleur des pions du J1  = pas d
 String nom_variable;
 String information;
 //***************************** VARIABLES POUR L'ETAT DE LA PARTIE ************************************************************
+byte pions_elimines;
 bool tour_blanc = true;
 byte tour = 0;
 //***************************** VARIABLES POUR LE TIMER ************************************************************

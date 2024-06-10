@@ -195,14 +195,19 @@ void dep_pion() {
 
   pion_selectionne = !pion_selectionne;
 }
+
 bool elim_pion(int colonne, int ligne) {
   if (planche[colonne][ligne] != 0) {
-    if (pions_elimines == 8) {
-      nom_variable = "page=";
-      information = "DEPLACEMENT FAUX";
+    if (pions_elimines == 7) {
+      nom_variable = "";
+      information = "page 13";
       envoi_ecran_str(&nom_variable, &information);
+    } else {
+      x_dep = case_x[colonne] - x_precedent;
+      y_dep = case_y[ligne_select] - y_precedent;
+     
+     dep_pion();
     }
-    y_dep = case_y[ligne] - y_precedent;
   } else
     return false;
 }

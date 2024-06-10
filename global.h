@@ -98,6 +98,7 @@ extern byte j1_choix_pion;  // si j1_choix_pion = 0 => couleur des pions du J1  
 extern String nom_variable;
 extern String information;
 //***************************** VARIABLES POUR L'ETAT DE LA PARTIE ************************************************************
+extern byte pions_elimines;
 extern bool tour_blanc;
 extern byte tour;
 //***************************** VARIABLES POUR LE TIMER ************************************************************
