@@ -46,6 +46,7 @@ extern int y_dep;
 extern int colonne_select;
 extern int ligne_select;
 extern bool pion_selectionne;
+extern bool demonstration;
 
 extern int vit_dep;  // milisecondesc
 extern int nmbre_pas;

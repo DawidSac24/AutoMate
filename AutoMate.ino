@@ -19,7 +19,7 @@ int y_dep;
 int colonne_select;
 int ligne_select;
 bool pion_selectionne = false;
-
+bool demonstration = false;
 int vit_dep = 1800;  // milisecondesc
 int nmbre_pas = 50;
 int dir_moteur = 1;
@@ -78,7 +78,7 @@ void setup() {
 
   while (!Serial) {}
   // DDRC |= B00001111;
-  reset_pos()
+  reset_pos();
 
   Serial.println("ready to start");
   t = millis;

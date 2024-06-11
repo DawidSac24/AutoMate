@@ -1,3 +1,4 @@
+#include "Arduino.h"
 #include "global.h"
 
 void dep_horizontal(int *temps, int *pas, int *dir) {  // dir 1 = gauche et dir 2 = droite
@@ -82,15 +83,10 @@ void dep_pion() {
   x_dep = case_x[colonne_select] - x_precedent;
   y_dep = case_y[ligne_select] - y_precedent;
 
-  // Serial.print("x dep = ");
-  // Serial.println(x_dep);
-  // Serial.print("y dep = ");
-  // Serial.println(y_dep);
-
+  if (demonstration == true)
+    pion_selectionne = false;
   if (pion_selectionne == false) {
-    vit_dep = 1000;
-
-    // Serial.println("selection de pion");
+    vit_dep = 800;
 
     if (x_dep > 0) {
       dep_horizontal(&vit_dep, &x_dep, 1);
@@ -106,16 +102,13 @@ void dep_pion() {
       dir_moteur = 2;
       dep_vertical(&vit_dep, &y_dep, &dir_moteur);
     }
-
   } else if (pion_selectionne == true) {
     digitalWrite(AIMANT, 1);
+    delay(500);
+    vit_dep = 1000;
 
-    vit_dep = 1800;
 
-    // Serial.println("deplacement de pion");
-
-    if (x_dep > 0) {
-      // Serial.println("100 gauche");
+    if (x_dep > 0) {  // 100 gauche
       x_dep = x_dep - 100;
 
       // Serial.print("x dep = ");
@@ -190,7 +183,7 @@ void dep_pion() {
       y_dep = 0;
       dep_vertical(&vit_dep, &x, &dir_moteur);
     }
-    delay(1000);
+    delay(500);
   }
   digitalWrite(AIMANT, 0);
 
@@ -202,43 +195,111 @@ void dep_pion() {
 
 void demo() {
   reset_pos();
-  pion_selectionne = false;
-
+  demonstration = true;
   // d2 -> d4
-  Serial.println("d2 -> d4");
   ligne_select = 3;
   colonne_select = 1;
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 3;
   colonne_select = 3;
   dep_pion();
   delay(500);
 
+  // g7 -> h6
+  ligne_select = 6;
+  colonne_select = 6;
+  dep_pion();
+  delay(500);
+
+  digitalWrite(AIMANT, 1);
+  ligne_select = 7;
+  colonne_select = 5;
+  dep_pion();
+  delay(500);
+
   // g8 -> f6
-  Serial.println("g8 -> f6");
   ligne_select = 6;
   colonne_select = 7;
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 5;
   colonne_select = 5;
   dep_pion();
   delay(500);
 
-  // b1 -> d2
-  Serial.println("b1 -> d2");
+  // h6 -> g7
+  Serial.println("h6 -> g7");
+  ligne_select = 7;
+  colonne_select = 5;
+  dep_pion();
+  delay(500);
+
+  digitalWrite(AIMANT, 1);
+  dir_moteur = 1;
+  y_dep = 200;
+  dep_vertical(&vit_dep, &y_dep, &dir_moteur);
+  dep_horizontal(&vit_dep, &y_dep, 1);
+  delay(500);
+  digitalWrite(AIMANT, 0);
+
+  // b2 -> a3
+  Serial.println("b2 -> b4");
+  ligne_select = 1;
+  colonne_select = 1;
+  dep_pion();
+  delay(500);
+
+  digitalWrite(AIMANT, 1);
+  ligne_select = 1;
+  colonne_select = 3;
+  dep_pion();
+  delay(1000);
+
+  // b1 -> d3
+  Serial.println("b1 -> d3");
   ligne_select = 1;
   colonne_select = 0;
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
+  ligne_select = 3;
+  colonne_select = 2;
+  dep_pion();
+  delay(500);
+
+  // d3 -> d2
+  Serial.println("d3 -> d2");
+  ligne_select = 3;
+  colonne_select = 2;
+  dep_pion();
+  delay(500);
+
+  digitalWrite(AIMANT, 1);
   ligne_select = 3;
   colonne_select = 1;
   dep_pion();
   delay(500);
+
+  // a3 -> b2
+  Serial.println("a3 -> b2");
+  ligne_select = 0;
+  colonne_select = 2;
+  dep_pion();
+  delay(500);
+
+  digitalWrite(AIMANT, 1);
+  dir_moteur = 2;
+  y_dep = 200;
+  dep_vertical(&vit_dep, &y_dep, &dir_moteur);
+  dep_horizontal(&vit_dep, &y_dep, 2);
+  delay(500);
+  digitalWrite(AIMANT, 0);
 
   // e7 -> e5
   Serial.println("e7 -> e5");
@@ -247,6 +308,7 @@ void demo() {
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 4;
   colonne_select = 4;
   dep_pion();
@@ -261,11 +323,10 @@ void demo() {
   delay(500);
 
   digitalWrite(AIMANT, 1);
-  vit_dep = 1800;
-  dir_moteur = 2;
-  y_dep = 700;
+  delay(500);
+  dir_moteur = 1;
+  y_dep = 900;
   dep_vertical(&vit_dep, &y_dep, &dir_moteur);
-  pion_selectionne = false;
   digitalWrite(AIMANT, 0);
   delay(500);
 
@@ -281,6 +342,7 @@ void demo() {
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 4;
   colonne_select = 4;
   dep_pion();
@@ -293,6 +355,7 @@ void demo() {
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 6;
   colonne_select = 3;
   dep_pion();
@@ -305,6 +368,7 @@ void demo() {
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 7;
   colonne_select = 2;
   dep_pion();
@@ -317,6 +381,7 @@ void demo() {
   dep_pion();
   delay(500);
 
+  digitalWrite(AIMANT, 1);
   ligne_select = 4;
   colonne_select = 2;
   dep_pion();
@@ -326,4 +391,5 @@ void demo() {
   mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
   mySerial.write(0xff);
   mySerial.write(0xff);
+  demonstration = false;
 }
