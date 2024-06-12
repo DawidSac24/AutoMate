@@ -1,10 +1,6 @@
 #include "global.h"
 
 void envoi_ecran_val(String *variable, int *info) {
-  // Serial.println("evoi ecran =");
-  // Serial.println(*variable);
-  // Serial.println(*info);
-
   mySerial.print(*variable);
   mySerial.print(*info);
   mySerial.write(0xff);  // We always have to send this three lines after each command sent to the nextion display.
@@ -12,10 +8,6 @@ void envoi_ecran_val(String *variable, int *info) {
   mySerial.write(0xff);
 }
 void envoi_ecran_str(String *variable, String *info) {
-  // Serial.println("evoi ecran =");
-  // Serial.println(*variable);
-  // Serial.println(*info);
-
   mySerial.print(*variable);
   mySerial.print("\"");
   mySerial.print(*info);
@@ -36,13 +28,11 @@ void decompte() {  //
   }
 
   t = millis();
-  // Serial.println(secondes);
   secondes--;
   if (secondes <= 0) {
     minutes--;
     secondes = 60;
   }
-  // Serial.println(minutes);
 
   //  Record the white player time
   if (tour_blanc == true) {
@@ -57,9 +47,6 @@ void decompte() {  //
 }
 
 void calibrate() {
-
-  // Serial.println("sequance = CALIBRATE");
-
   if (tour_blanc == true) {
     nom_variable = "n0.val=";
     envoi_ecran_val(&nom_variable, &minutes_blanc);
@@ -124,4 +111,63 @@ void demarrage_partie() {
   calibrate();
   reset_pos();
   Serial.println("sequance = START");
+}
+
+void lecture_aimants() {
+  byte column = 6;
+  byte row = 0;
+
+  for (byte i = 0; i < 4; i++) {
+    digitalWrite(MUX_SELECT[i], LOW);
+    for (byte j = 0; j < 16; j++)  //16 entrées du mux
+    {
+      for (byte k = 0; k < 4; k++)  // 4 mux et 4 code binaire (0101)
+      {
+        digitalWrite(MUX_ADDR[k], MUX_CHANNEL[j][k]);  // on ecrit les valeurs binaires sur les 4 sorties A0-A3
+        delayMicroseconds(10);                         //stablisation du capteur
+      }
+      reed_sensor_record[column][row] = digitalRead(MUX_OUTPUT);  //lecture de la pate sig
+      row++;
+      if (j == 7) {  //colonne
+        column++;
+        row = 0;
+      }
+    }
+    for (byte l = 0; l < 4; l++) {
+      digitalWrite(MUX_SELECT[l], HIGH);
+    }
+    if (i == 0) column = 4;
+    if (i == 1) column = 2;
+    if (i == 2) column = 0;
+    row = 0;
+  }
+}
+
+void affichage_aimants() {
+  for (byte i = 0; i < 8; i++) {
+    for (byte j = 0; j < 8; j++) {
+      delayMicroseconds(1);
+      reed_sensor_status_memory[7 - i][j] = reed_sensor_record[i][j];
+    }
+  }
+  for (byte i = 0; i < 8; i++) {
+    for (byte j = 0; j < 8; j++) {
+      Serial.print(reed_sensor_record[j][i]);
+      Serial.print(" ");
+    }
+    Serial.println(" ");
+  }
+  Serial.println("*****************************************************");
+  delay(333);
+}
+
+void affichage_planche() {
+  for (int i = 0; i < 8; i++) {
+    for (int j = 0; j < 8; j++) {
+      Serial.print(planche[i][j]);
+      Serial.print("  ");
+    }
+    Serial.println(" ");
+  }
+  Serial.println("*************************************************************************");
 }

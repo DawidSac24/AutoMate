@@ -23,19 +23,33 @@
 #define EN3 7
 #define EN4 13
 //****************** Constantes pour le choix de sequances *******************************************
-#define START 1
-#define CALIBRATE 2
-#define PARAMETRES 3
 #define JOUEUR_BLANC 0
 #define JOUEUR_NOIR 1
 //****************** Constantes pour la sequance de deplacement *******************************************
-#define CHOIX_PION 0
-#define DEPLACEMENT_PION 1
 //****************** Constantes pour le choix de difficulté *******************************************
 #define EASY 1
 #define NORMAL 2
 #define HARD 3
+//******************************************* VALEURS DES PIONS ***************************************************************
+#define ROI_B 6
+#define ROI_N -6
+#define DAME_B 5
+#define DAME_N -5
+#define TOUR_B 4
+#define TOUR_N -4
+#define FOU_B 3
+#define FOU_N -3
+#define CHEVAL_B 2
+#define CHEVAL_N -2
+#define PION_B 1
+#define PION_N -1
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
+//******************************************* PLANCHE DE DEPART ***************************************************************
+extern const int planche_depart[8][8];
+//******************************************* PLANCHE  ************************************************************************
+extern int planche[8][8];
+extern int planche_precedent[8][8];
+extern int pion_tempo;
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 extern int case_x[8];
 extern int case_y[8];
@@ -46,6 +60,8 @@ extern int y_dep;
 extern int colonne_select;
 extern int ligne_select;
 extern bool pion_selectionne;
+extern int colonne_precedent;
+extern int ligne_precedent;
 extern bool demonstration;
 
 extern int vit_dep;  // milisecondesc
@@ -55,6 +71,15 @@ extern int dir2;
 
 extern int pos_x;
 extern int pos_y;
+//***************************** VARIABLES POUR Les multiplexeurs ************************************************************
+extern int reed_sensor_status[8][8];
+extern int reed_sensor_record[8][8];
+extern int reed_sensor_status_memory[8][8];
+extern const byte MUX_OUTPUT;
+extern const byte MUX_ADDR[4];  // A3 -> LSB A0 -> MSB
+extern const byte MUX_SELECT[4];
+
+extern const byte MUX_CHANNEL[16][4];
 //***************************** VARIABLES POUR LE MENU ************************************************************
 extern int data[7];  // Déclaration d'un tableau d'entier
 extern byte sequance;
@@ -95,3 +120,11 @@ void calibrate();
 void demarrage_partie();
 void dep_pion();
 void demo();
+bool elim_pion(int colonne, int ligne);
+bool verif_dep();
+bool pion_blanc();
+bool pion_noir();
+bool verif_tour();
+void lecture_aimants();
+void affichage_aimants();
+void affichage_planche();

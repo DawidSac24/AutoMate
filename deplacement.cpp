@@ -35,7 +35,7 @@ void dep_vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
 
 void reset_pos() {
   // dep vers l'arriere
-  vit_dep = 1000;
+  vit_dep = 800;
 
   nmbre_pas = 50;
   dir_moteur = 1;
@@ -86,18 +86,18 @@ void dep_pion() {
   if (demonstration == true)
     pion_selectionne = false;
   if (pion_selectionne == false) {
-    vit_dep = 800;
+    vit_dep = 1000;
 
-    if (x_dep > 0) {
+    if (x_dep > 0) { // haut
       dep_horizontal(&vit_dep, &x_dep, 1);
-    } else {
+    } else { // bas
       x_dep = x_dep * -1;
       dep_horizontal(&vit_dep, &x_dep, 2);
     }
-    if (y_dep > 0) {
+    if (y_dep > 0) { // gauche
       dir_moteur = 1;
       dep_vertical(&vit_dep, &y_dep, &dir_moteur);
-    } else {
+    } else { // droite
       y_dep = y_dep * -1;
       dir_moteur = 2;
       dep_vertical(&vit_dep, &y_dep, &dir_moteur);
@@ -111,36 +111,27 @@ void dep_pion() {
     if (x_dep > 0) {  // 100 gauche
       x_dep = x_dep - 100;
 
-      // Serial.print("x dep = ");
-      // Serial.println(x_dep);
-
       dep_horizontal(&vit_dep, &x, 1);
-    } else if (x_dep < 0) {
-      // Serial.println("100 droite");
+    } else if (x_dep < 0) { // 100 droite
       x_dep = x_dep + 100;
 
-      // Serial.print("x dep = ");
-      // Serial.println(x_dep);
-
-      dep_horizontal(&vit_dep, &x, 2);
-    } else if (x_dep == 0) {
+      dep_horizontal(&vit_dep, &x, 2); 
+    } else if (x_dep == 0) { // 100 bas
       if (ligne_select == 7) {
         x_dep = -100;
         dep_horizontal(&vit_dep, &x, 1);
       } else {
         x_dep = 100;
-        dep_horizontal(&vit_dep, &x, 2);
+        dep_horizontal(&vit_dep, &x, 2); // 100 haut
       }
     }
 
-    if (y_dep > 0) {
-      // Serial.println("bas");
+    if (y_dep > 0) { // bas
       dir_moteur = 1;
       y_dep = y_dep - 100;
 
       dep_vertical(&vit_dep, &y_dep, &dir_moteur);
-    } else if (y_dep < 0) {
-      // Serial.println("haut");
+    } else if (y_dep < 0) { // haut
       dir_moteur = 2;
       y_dep = y_dep + 100;
 
@@ -154,31 +145,20 @@ void dep_pion() {
       dep_vertical(&vit_dep, &x, &dir_moteur);
     }
 
-    if (x_dep > 0) {
-      // Serial.println("gauche");
+    if (x_dep > 0) { // gauche
+      dep_horizontal(&vit_dep, &x_dep, 1); 
 
-      // Serial.print("x dep = ");
-      // Serial.println(x_dep);
-
-      dep_horizontal(&vit_dep, &x_dep, 1);
-    } else if (x_dep < 0) {
-      // Serial.println("droite");
-
-      // Serial.print("x dep = ");
-      // Serial.println(x_dep);
-
+    } else if (x_dep < 0) { //droite
       x_dep = x_dep * -1;
       dep_horizontal(&vit_dep, &x_dep, 2);
       x_dep = x_dep * -1;
     }
 
-    if (y_dep > 0) {
-      // Serial.println("100 gauche");
+    if (y_dep > 0) { // 100 gauche
       dir_moteur = 1;
       y_dep = 0;
       dep_vertical(&vit_dep, &x, &dir_moteur);
-    } else if (y_dep < 0) {
-      // Serial.println("100 droite");
+    } else if (y_dep < 0) { // 100 droite
       dir_moteur = 2;
       y_dep = 0;
       dep_vertical(&vit_dep, &x, &dir_moteur);
@@ -331,6 +311,7 @@ void demo() {
   delay(500);
 
   reset_pos();
+  vit_dep = 1000;
   x_precedent = 0;
   y_precedent = 0;
   // *************************************************** ELIM PION ************************************************

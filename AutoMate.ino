@@ -9,6 +9,21 @@
 //********************************************** LIBRAIRIES *******************************************************************
 #include "global.h"
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
+//******************************************* PLANCHE DE DEPART ***************************************************************
+const int planche_depart[8][8] = {
+  { TOUR_B, CHEVAL_B, FOU_B, DAME_B, ROI_B, FOU_B, CHEVAL_B, TOUR_B },
+  { PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B, PION_B },
+  {},
+  {},
+  {},
+  {},
+  { PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N, PION_N },
+  { TOUR_N, CHEVAL_N, FOU_N, DAME_N, ROI_N, FOU_N, CHEVAL_N, TOUR_N },
+};
+//******************************************* PLANCHE  ************************************************************************
+int planche[8][8];
+int planche_precedent[8][8];
+int pion_tempo;
 //***************************** VARIABLES POUR LE DEPLACEMENT ************************************************************
 int case_x[8] = { 0, 200, 400, 600, 800, 1000, 1200, 1400 };
 int case_y[8] = { 1400, 1200, 1000, 800, 600, 400, 200, 0 };
@@ -18,15 +33,44 @@ int x_dep;
 int y_dep;
 int colonne_select;
 int ligne_select;
+int colonne_precedent;
+int ligne_precedent;
 bool pion_selectionne = false;
 bool demonstration = false;
-int vit_dep = 1800;  // milisecondesc
+
+int vit_dep = 1000;  // milisecondesc
 int nmbre_pas = 50;
 int dir_moteur = 1;
 int dir2;
 
 int pos_x;
 int pos_y;
+//***************************** VARIABLES POUR Les multiplexeurs ************************************************************
+int reed_sensor_status[8][8];
+int reed_sensor_record[8][8];
+int reed_sensor_status_memory[8][8];
+const byte MUX_OUTPUT(12);
+const byte MUX_ADDR[4] = { A3, A2, A1, A0 };  // A3 -> LSB A0 -> MSB
+const byte MUX_SELECT[4] = { 9, 8, 7, 13 };
+
+const byte MUX_CHANNEL[16][4] = {
+  { 0, 0, 0, 0 },
+  { 1, 0, 0, 0 },
+  { 0, 1, 0, 0 },
+  { 1, 1, 0, 0 },
+  { 0, 0, 1, 0 },
+  { 1, 0, 1, 0 },
+  { 0, 1, 1, 0 },
+  { 1, 1, 1, 0 },
+  { 0, 0, 0, 1 },
+  { 1, 0, 0, 1 },
+  { 0, 1, 0, 1 },
+  { 1, 1, 0, 1 },
+  { 0, 0, 1, 1 },
+  { 1, 0, 1, 1 },
+  { 0, 1, 1, 1 },
+  { 1, 1, 1, 1 }
+};
 //***************************** VARIABLES POUR LE MENU ************************************************************
 int data[7];  // Déclaration d'un tableau d'entier
 byte sequance;
@@ -77,7 +121,20 @@ void setup() {
   digitalWrite(EN1, 0);
 
   while (!Serial) {}
-  // DDRC |= B00001111;
+  for (byte i = 0; i < 4; i++) {  // INITIALISATION des multiplexeurs
+    pinMode(MUX_ADDR[i], OUTPUT);
+    digitalWrite(MUX_ADDR[i], LOW);
+    pinMode(MUX_SELECT[i], OUTPUT);
+    digitalWrite(MUX_SELECT[i], HIGH);
+  }
+  pinMode(MUX_OUTPUT, INPUT_PULLUP);
+  for (byte i = 2; i < 6; i++) {
+    for (byte j = 0; j < 8; j++) {
+      reed_sensor_status[i][j] = 1;
+      reed_sensor_status_memory[i][j] = 1;
+    }
+  }
+
   reset_pos();
 
   Serial.println("ready to start");
@@ -225,7 +282,11 @@ void loop() {
         envoi_ecran_val(&nom_variable, &minutes_blanc);
         nom_variable = "n1.val=";
         envoi_ecran_val(&nom_variable, &secondes_blanc);
+        affichage_planche();
+        affichage_aimants();
       }
+      break;
+
       break;
     case JOUEUR_NOIR:
       if (millis() - t > 995) {  // Display the black player clock
@@ -235,8 +296,9 @@ void loop() {
         envoi_ecran_val(&nom_variable, &minutes_noir);
         nom_variable = "n1.val=";
         envoi_ecran_val(&nom_variable, &secondes_noir);
+        affichage_planche();
+        affichage_aimants();
       }
       break;
   }
 }
- 
