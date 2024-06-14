@@ -23,7 +23,7 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [Partie mécanique](#Partie-mécanique)
 
 ## Project source
-
+This is a project that I found on internet and decided to use it as an inspiration source. 
 ## Introduction
 
 
