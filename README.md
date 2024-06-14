@@ -15,18 +15,18 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [Used libraries](#Used-libraries)  
 - [Partie mécanique](#Partie-mécanique)
 
-##Introduction
+## Introduction
 
 
-##The block diagram
+## The block diagram
 
 
-##Characteristics
+## Characteristics
 
 
-##Parts list
+## Parts list
 
-###XY table :
+### XY table :
 
 2 x V slot 20x20 linear rail, Length = 345 mm
 1 x V slot 20x20 linear rail, Length = 315 mm
@@ -34,13 +34,13 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 1 x V slot 20x20 linear rail, Length = 395 mm
 10 x 90 degree Corner Bracket
 
-###Transmission :
+### Transmission :
 
 2 x GT2 Pulley, 20 teeth, 5mm bore
 8 x GT2 Toothless pulley
 3.5m x GT2 Belt
 
-###Electronics :
+### Electronics :
 
 1 x Arduino Nano
 2 x Stepper Motor - Adafruit - Nema 17 size - 200 steps/rev, 12V 350mA
@@ -61,20 +61,20 @@ Female Headers
 4 x HE10 Connectors
 8 x Ribbon Cable - 8
 
-###Chess :
+### Chess :
 
 1 x Chess pieces set - Staunton 3
 1 x Chessboard Sticker - Squares size : 37 x 37 mm
 32 x Magnet, Dia 8 x 3 mm
 
-###Box :
+### Box :
 
 1 x Foamboard - 462 x 462 x 5 mm
 1 x Foamboard - 462 x 462 x 10 mm
 2 x Foamboard - 462 x 80 x 10 mm
 2 x Foamboard - 442 x 80 x 10 mm
 
-###Bolting :
+### Bolting :
 
 8 x Mini V Wheel
 4 x Aluminium Spacer - ID : 5mm - Height : 6mm
@@ -96,6 +96,6 @@ Female Headers
 4 x Slotted Countersunk Head Screw - M5 x 20 mm
 4 x Nut - M5
 
-##PCB routing and screen printing
+## PCB routing and screen printing
 
-##Used libraries
+## Used libraries
