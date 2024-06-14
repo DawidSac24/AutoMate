@@ -28,15 +28,11 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 
 ### XY table :
 
-2 x V slot 20x20 linear rail, Length = 345 mm
-
-1 x V slot 20x20 linear rail, Length = 315 mm
-
-1 x V slot 20x20 linear rail, Length = 350 mm
-
-1 x V slot 20x20 linear rail, Length = 395 mm
-
-10 x 90 degree Corner Bracket
+- 2 x V slot 20x20 linear rail, Length = 345 mm
+- 1 x V slot 20x20 linear rail, Length = 315 mm
+- 1 x V slot 20x20 linear rail, Length = 350 mm
+- 1 x V slot 20x20 linear rail, Length = 395 mm
+- 10 x 90 degree Corner Bracket
 
 ### Transmission :
 
