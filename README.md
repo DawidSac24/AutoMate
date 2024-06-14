@@ -1,7 +1,22 @@
 # AutoMate
+![Image (8)](https://github.com/DawidSac24/AutoMate/assets/171250080/2e45e442-d7ad-42c4-8633-2ada9f801d8c)
+## Video 
 
-## Hi! This is a project that I made for school. It is a chess board which moves pawns automatically. 
+https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-5ba671484344
 
-The code is still being developed and I need to make an algorithm which will act as an AI enemy robot. 
-I invite you to check my work in the word link down below: 
-[SAC DAWID AUTO-MATE.docx ](https://inracibe-my.sharepoint.com/:w:/g/personal/dawid_sac_inraci_be/EWjaS0o9X0BBgtHOjLWThwMBnQo6g4izP0RG_9rxCDOR3g?e=TZk09r)
+### Summary
+- [Introduction](#Introduction)
+- [The block diagram](#The-block-diagram) 
+- [Characteristics](#Characteristics)
+- [The principle diagram](#The-principle-diagram)
+  - [PCB routing and screen printing](#PCB-routing-and-screen-printing)
+- [Bibliothèques nécessaires](#Bibliothèques-nécessaires)  
+- [Partie mécanique](#Partie-mécanique)
+
+##Introduction
+
+##The block diagram
+
+##Characteristics
+
+##PCB routing and screen printing
