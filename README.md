@@ -5,6 +5,7 @@
 https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-5ba671484344
 
 ### Summary
+
 - [Introduction](#Introduction)
 - [The block diagram](#The-block-diagram) 
 - [Characteristics](#Characteristics)
@@ -16,22 +17,31 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 
 ##Introduction
 
+
 ##The block diagram
+
 
 ##Characteristics
 
+
 ##Parts list
+
 ###XY table :
+
 2 x V slot 20x20 linear rail, Length = 345 mm
 1 x V slot 20x20 linear rail, Length = 315 mm
 1 x V slot 20x20 linear rail, Length = 350 mm
 1 x V slot 20x20 linear rail, Length = 395 mm
 10 x 90 degree Corner Bracket
+
 ###Transmission :
+
 2 x GT2 Pulley, 20 teeth, 5mm bore
 8 x GT2 Toothless pulley
 3.5m x GT2 Belt
+
 ###Electronics :
+
 1 x Arduino Nano
 2 x Stepper Motor - Adafruit - Nema 17 size - 200 steps/rev, 12V 350mA
 2 x Stepper Motor Driver Carrier - Pololu - A4988
@@ -50,16 +60,22 @@ Female Headers
 3 x Prototyping Board - 50 x 100 mm
 4 x HE10 Connectors
 8 x Ribbon Cable - 8
+
 ###Chess :
+
 1 x Chess pieces set - Staunton 3
 1 x Chessboard Sticker - Squares size : 37 x 37 mm
 32 x Magnet, Dia 8 x 3 mm
+
 ###Box :
+
 1 x Foamboard - 462 x 462 x 5 mm
 1 x Foamboard - 462 x 462 x 10 mm
 2 x Foamboard - 462 x 80 x 10 mm
 2 x Foamboard - 442 x 80 x 10 mm
+
 ###Bolting :
+
 8 x Mini V Wheel
 4 x Aluminium Spacer - ID : 5mm - Height : 6mm
 4 x Eccentric Spacer - M5
