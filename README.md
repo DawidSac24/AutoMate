@@ -10,7 +10,7 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [The block diagram](#The-block-diagram) 
 - [Characteristics](#Characteristics)
 - [Parts list](#Parts-list) 
-  - [XY table :](#XY-table-:)
+  - [XY table :](#XY-table)
   - [Transmission :](#Transmission-:)
   - [Electronics :](#Electronics-:)
   - [Box :](#Box-:)
