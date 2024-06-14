@@ -6,6 +6,7 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 
 ## Summary
 
+- [Project source](#Project-source)
 - [Introduction](#Introduction)
 - [The block diagram](#The-block-diagram) 
 - [Characteristics](#Characteristics)
@@ -20,6 +21,8 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [PCB routing and screen printing](#PCB-routing-and-screen-printing)
 - [Used libraries](#Used-libraries)  
 - [Partie mécanique](#Partie-mécanique)
+
+## Project source
 
 ## Introduction
 
