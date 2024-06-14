@@ -10,6 +10,12 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [The block diagram](#The-block-diagram) 
 - [Characteristics](#Characteristics)
 - [Parts list](#Parts-list) 
+  - [XY table :](#XY-table-:)
+  - [Transmission :](#Transmission-:)
+  - [Electronics :](#Electronics-:)
+  - [Box :](#Box-:)
+  - [Bolting :](#Bolting-:)
+
 - [The principle diagram](#The-principle-diagram)
 - [PCB routing and screen printing](#PCB-routing-and-screen-printing)
 - [Used libraries](#Used-libraries)  
@@ -28,9 +34,9 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 
 ### XY table :
 
-- 2 x V slot 20x20 linear rail, Length = 345 mm
-- 1 x V slot 20x20 linear rail, Length = 315 mm
+- 2 x V slot 20x20 linear rail, Length = 375 mm
 - 1 x V slot 20x20 linear rail, Length = 350 mm
+- 1 x V slot 20x20 linear rail, Length = 315 mm
 - 1 x V slot 20x20 linear rail, Length = 395 mm
 - 10 x 90 degree Corner Bracket
 
@@ -61,18 +67,11 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - 4 x HE10 Connectors
 - 8 x Ribbon Cable - 8
 
-### Chess :
-
-- 1 x Chess pieces set - Staunton 3
-- 1 x Chessboard Sticker - Squares size : 37 x 37 mm
-- 32 x Magnet, Dia 8 x 3 mm
-
 ### Box :
 
-- 1 x Foamboard - 462 x 462 x 5 mm
-- 1 x Foamboard - 462 x 462 x 10 mm
-- 2 x Foamboard - 462 x 80 x 10 mm
-- 2 x Foamboard - 442 x 80 x 10 mm
+- 2 x plywood - 470 x 470 x 10 mm
+- 2 x plywood - 450 x 85 x 10 mm
+- 2 x plywood - 450 x 85 x 10 mm
 
 ### Bolting :
 
