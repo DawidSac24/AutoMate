@@ -36,25 +36,25 @@ I am pleased to present my exciting project: Auto-Mate, an automated chess game 
 #### The Microprocessor
 It is the brain of the setup, allowing control of each component (motors, motor drivers, electromagnet, multiplexers, and touchscreen) and reading the necessary data (limit switches, buttons, magnetic sensors, and touchscreen).
 
-The Touchscreen
+#### The Touchscreen
 It provides the ability to navigate through menus to change the AI difficulty, display the timer, modify game settings, or select the game mode. It communicates with the UART, an asynchronous serial bus.
 
-Motor Drivers A and B
+#### Motor Drivers A and B
 They control the coils of the stepper motors and provide the necessary current to operate them.
 
-Motors A and B
+#### Motors A and B
 They are connected to a belt system, moving the electromagnet on the x and y axes.
 
-The Electromagnet
+#### The Electromagnet
 It is placed underneath the board and is used to move the magnetized pieces on the board.
 
-The Multiplexer
+#### The Multiplexer
 It successively reads the signals from the 8 sensors and sends the data to the microprocessor.
 
-Magnetic Sensors
+#### Magnetic Sensors
 They determine the presence of the chess pieces.
 
-x and y Limit Switches
+#### x and y Limit Switches
 They locate the position of the electromagnet by resetting at the start of the game. They allow for calibration of its position and help avoid potential misalignments during movement.
 
 ## Characteristics
