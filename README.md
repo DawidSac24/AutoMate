@@ -23,9 +23,8 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [Partie mécanique](#Partie-mécanique)
 
 ## Project source
-Here is a project that i used as an inspiration source :
-
-[instructables.com/Automated-Chessboard](https://www.instructables.com/Automated-Chessboard/))
+I would like to sincerely thank the author of the site from which I drew inspiration :
+[instructables.com/Automated-Chessboard](https://www.instructables.com/Automated-Chessboard/)
 
 ## Introduction
 
