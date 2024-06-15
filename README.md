@@ -81,8 +81,7 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 1 x Arduino Nano
 - 2 x Stepper Motor - Adafruit - Nema 17 size - 200 steps/rev, 12V 350mA
 - 2 x Stepper Motor Driver Carrier - Pololu - A4988
-- 1 x LCD Module - I2C Serial - 2.6“
-- 2 x Arcade button - Bore hole 23.5 mm
+- 1 x Nextion touchscreen - NX3224T024
 - 1 x Electromagnet - 5Kg Holding Force
 - 1 x Freewheeling diode - 1N4001
 - 1 x Power Transistor - TIP 120
@@ -90,12 +89,6 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 64 x Reed Switch - Dia 2 x 14.5 mm
 - 1 x Resistor - 1K ohm
 - 4 x MUX breakout - SparkFun - CD74HC4067
-- 1 x Terminal Block - DC Jack
-- Female Headers
-- 10 x Screw Terminal
-- 3 x Prototyping Board - 50 x 100 mm
-- 4 x HE10 Connectors
-- 8 x Ribbon Cable - 8
 
 ### Box
 
