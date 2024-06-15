@@ -16,9 +16,10 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
   - [Electronics](#Electronics)
   - [Box](#Box)
   - [Bolting](#Bolting)
-
 - [The principle diagram](#The-principle-diagram)
-- [PCB routing and screen printing](#PCB-routing-and-screen-printing)
+- [PCB](#PCB)
+  - 
+  -
 - [Used libraries](#Used-libraries)  
 - [Partie mécanique](#Partie-mécanique)
 
@@ -131,7 +132,7 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 4 x Slotted Countersunk Head Screw - M5 x 20 mm
 - 4 x Nut - M5
 
-## PCB routing and screen printing
+## PCB
 ![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
 
 ## Used libraries
