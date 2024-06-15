@@ -132,5 +132,6 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 4 x Nut - M5
 
 ## PCB routing and screen printing
+![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
 
 ## Used libraries
