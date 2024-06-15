@@ -31,6 +31,8 @@ I am pleased to present my exciting project: Auto-Mate, an automated chess game 
 
 ## The block diagram
 
+![Schema bloc](https://github.com/DawidSac24/AutoMate/assets/171250080/c1ea0b3d-b250-44f0-b621-0e71598915d2)
+
 
 ## Characteristics
 
