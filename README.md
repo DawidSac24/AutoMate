@@ -61,7 +61,7 @@ They determine the presence of the chess pieces.
 They locate the position of the electromagnet by resetting at the start of the game. They allow for calibration of its position and help avoid potential misalignments during movement.
 
 ## Characteristics
-### General:
+### General :
 - Color graphical resistive touchscreen, 320×240 pixels
 - 2 arcade buttons
 - 32 magnetized pieces
@@ -69,9 +69,9 @@ They locate the position of the electromagnet by resetting at the start of the g
 - Automatic piece movement
 - Automatic piece detection
 - Area for eliminated pieces
-### Electronics:
+### Electronics :
 - Power supply: 12V, 2A
-### Mechanics:
+### Mechanics :
 - Dimensions: 496 mm x 496 mm x 100 mm
 - 6 plywood faces
 - Weight: 4 kg
