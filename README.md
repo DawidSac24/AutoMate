@@ -1,7 +1,8 @@
 # AutoMate
 ![Image](https://github.com/DawidSac24/AutoMate/assets/171250080/feb73961-88cd-448d-83f6-739fa6a3914a)
 ## Video 
-![bb23373b-2b8f-4cdd-a613-5a24f01cbbb1](https://github.com/DawidSac24/AutoMate/assets/171250080/5fff7cac-e4d3-496c-a2cd-e314564e89d5)
+
+
 
 https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-5ba671484344
 
@@ -17,8 +18,10 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
   - [Electronics](#Electronics)
   - [Box](#Box)
   - [Bolting](#Bolting)
-- [The principle diagram](#The-principle-diagram)
-- [PCB](#PCB)
+- [The principle diagrams](#The-principle-diagrams)
+  - [The principle diagram without connector](#The-principle-diagram-without-connector)
+  - [The principle diagram with connector](#The-principle-diagram-with-connector)
+- [The PCB](#The-PCB)
   - 
   -
 - [Used libraries](#Used-libraries)  
@@ -76,23 +79,17 @@ They locate the position of the electromagnet by resetting at the start of the g
 - Weight: 4 kg
 
 ## Parts list
-
 ### XY table
-
 - 2 x V slot 20x20 linear rail, Length = 375 mm
 - 1 x V slot 20x20 linear rail, Length = 350 mm
 - 1 x V slot 20x20 linear rail, Length = 315 mm
 - 1 x V slot 20x20 linear rail, Length = 395 mm
 - 10 x 90 degree Corner Bracket
-
 ### Transmission
-
 - 2 x GT2 Pulley, 20 teeth, 5mm bore
 - 8 x GT2 Toothless pulley
 - 3.5m x GT2 Belt
-
 ### Electronics
-
 - 1 x Arduino Nano
 - 2 x Stepper Motor - Adafruit - Nema 17 size - 200 steps/rev, 12V 350mA
 - 2 x Stepper Motor Driver Carrier - Pololu - A4988
@@ -104,15 +101,11 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 64 x Reed Switch - Dia 2 x 14.5 mm
 - 1 x Resistor - 1K ohm
 - 4 x MUX breakout - SparkFun - CD74HC4067
-
 ### Box
-
 - 2 x plywood - 470 x 470 x 10 mm
 - 2 x plywood - 450 x 85 x 10 mm
 - 2 x plywood - 450 x 85 x 10 mm
-
 ### Bolting
-
 - 8 x Mini V Wheel
 - 4 x Aluminium Spacer - ID : 5mm - Height : 6mm
 - 4 x Eccentric Spacer - M5
@@ -132,8 +125,11 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 1 x Hex. Socket Head Cap Screw - M4 x 15 mm
 - 4 x Slotted Countersunk Head Screw - M5 x 20 mm
 - 4 x Nut - M5
-
-## PCB
+## The principle diagrams
+### The principle diagram without connector
 ![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
+### The principle diagram with connector
+![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
+## The PCB
 
 ## Used libraries
