@@ -75,8 +75,7 @@ I planned to use a [Nextion library](https://docs.arduino.cc/learn/built-in-libr
 ## My code
 I wanted to add an algorithm that would be used for an enemy robot. Unfortunately, I did not finish verifying the allowed moves for the pawns, which is required for the algorithm. So, you must wait for the next updates to see the algorithm development. To compensate, here is what I plan to do for the enemy robot:
 ![obraz_2024-06-16_125101164](https://github.com/DawidSac24/AutoMate/assets/171250080/89d0b882-404a-4c24-a282-328a4100314f)
-It is called the Min-Max algorithm and I will use Alpha-Beta wich evaluates thew non necessery calculations and will ignore the unwanted possibilities.
-I invite you to shearch some documantations about Min-Max and Alpha-Beta that are realy intrusting. Here is a video that explains really well the algorythm : 
+It is called the Min-Max algorithm, and I will use Alpha-Beta pruning, which evaluates unnecessary calculations and ignores unwanted possibilities. I invite you to search for some documentation about Min-Max and Alpha-Beta that is really interesting. Here is a video that explains the algorithm very well:
 https://www.youtube.com/watch?v=l-hh51ncgDI&t=48s
 
 ## The principle diagrams
