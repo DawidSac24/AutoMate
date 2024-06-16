@@ -30,7 +30,7 @@ I would like to sincerely thank the author of the site from which I drew inspira
 [instructables.com/Automated-Chessboard](https://www.instructables.com/Automated-Chessboard/)
 
 ## Introduction
-I am pleased to present my exciting project: Auto-Mate, an automated chess game designed to give a new dimension to this game. By enabling remote movement of pieces, I create the possibility of bringing chess online or against a robot on a chessboard. To achieve this, I have developed a case that handles the movement of the pieces. Auto-Mate is equipped with a screen, allowing for the automatic movement of pieces. It is also possible to move them manually using sensors located beneath the board. I made this project because I enjoy playing chess. It has allowed me to learn many new things in electronics and programming. Auto-mate is still in developpement (mostly the code).
+I am pleased to present my exciting project: Auto-Mate, an automated chess game designed to give a new dimension to this game. By enabling remote movement of pieces, I create the possibility of bringing chess online or against a robot on a chessboard. To achieve this, I have developed a case that handles the movement of the pieces. Auto-Mate is equipped with a screen, allowing for the automatic movement of pieces. It is also possible to move them manually using sensors located beneath the board. I made this project because I enjoy playing chess. It has allowed me to learn many new things in electronics and programming. Auto-mate is still in developpement (mostly the code). I invite you to see my work in the 'TFE' folder, there is a more detailed documentation of my project.
 
 ## The block diagram
 
