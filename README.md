@@ -38,25 +38,18 @@ I am pleased to present my exciting project: Auto-Mate, an automated chess game 
 
 #### The Microcontroller
 It is the brain of the setup, allowing control of each component (motors, motor drivers, electromagnet, multiplexers, and touchscreen) and reading the necessary data (limit switches, buttons, magnetic sensors, and touchscreen).
-
 #### The Touchscreen
 It provides the ability to navigate through menus to change the AI difficulty, display the timer, modify game settings, or select the game mode. It communicates with the UART, an asynchronous serial bus.
-
 #### Motor Drivers A and B
 They control the coils of the stepper motors and provide the necessary current to operate them.
-
 #### Motors A and B
 They are connected to a belt system, moving the electromagnet on the x and y axes.
-
 #### The Electromagnet
 It is placed underneath the board and is used to move the magnetized pieces on the board.
-
 #### The Multiplexer
 It successively reads the signals from the 8 sensors and sends the data to the microprocessor.
-
 #### Magnetic Sensors
 They determine the presence of the chess pieces.
-
 #### x and y Limit Switches
 They locate the position of the electromagnet by resetting at the start of the game. They allow for calibration of its position and help avoid potential misalignments during movement.
 
@@ -132,3 +125,4 @@ They locate the position of the electromagnet by resetting at the start of the g
 ![PCB_PCB_Auto-Mate_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)
 ![PCB_PCB_Auto-Mate_2024-06-16 (4)](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)
 ## Used libraries
+I planned to use a [Nextion library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) for the code of my touchscreen, but I accidentally connected my screen to the wrong pins of my microcontroller and had to use my touchscreen manually with the [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/).
