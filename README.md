@@ -1,6 +1,7 @@
 # AutoMate
 ![Image](https://github.com/DawidSac24/AutoMate/assets/171250080/feb73961-88cd-448d-83f6-739fa6a3914a)
 ## Video 
+![bb23373b-2b8f-4cdd-a613-5a24f01cbbb1](https://github.com/DawidSac24/AutoMate/assets/171250080/5fff7cac-e4d3-496c-a2cd-e314564e89d5)
 
 https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-5ba671484344
 
