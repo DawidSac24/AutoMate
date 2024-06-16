@@ -12,18 +12,18 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
 - [Introduction](#Introduction)
 - [The block diagram](#The-block-diagram) 
 - [Characteristics](#Characteristics)
+- [Used libraries](#Used-libraries)
+- [My code](#My-code)
+- [The principle diagrams](#The-principle-diagrams)
+  - [The principle diagram without connector](#The-principle-diagram-without-connector)
+  - [The principle diagram with connector](#The-principle-diagram-with-connector)
+- [The PCB](#The-PCB) 
 - [Parts list](#Parts-list) 
   - [XY table](#XY-table)
   - [Transmission](#Transmission)
   - [Electronics](#Electronics)
   - [Box](#Box)
   - [Bolting](#Bolting)
-- [The principle diagrams](#The-principle-diagrams)
-  - [The principle diagram without connector](#The-principle-diagram-without-connector)
-  - [The principle diagram with connector](#The-principle-diagram-with-connector)
-- [The PCB](#The-PCB)
-- [Used libraries](#Used-libraries)  
-- [Partie mécanique](#Partie-mécanique)
 
 ## Project source
 I would like to sincerely thank the author of the site from which I drew inspiration :
@@ -69,11 +69,31 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 6 plywood faces
 - Weight: 4 kg
 
+## Used libraries
+I planned to use a [Nextion library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) for the code of my touchscreen, but I accidentally connected my screen to the wrong pins of my microcontroller and had to use my touchscreen manually with the [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/).
+
+## My code
+I wanted to add an algorithm that would be used for an enemy robot. Unfortunately, I did not finish verifying the allowed moves for the pawns, which is required for the algorithm. So, you must wait for the next updates to see the algorithm development. To compensate, here is what I plan to do for the enemy robot:
+![obraz_2024-06-16_125101164](https://github.com/DawidSac24/AutoMate/assets/171250080/89d0b882-404a-4c24-a282-328a4100314f)
+It is called the Min-Max algorithm and I will use Alpha-Beta wich evaluates thew non necessery calculations and will ignore the unwanted possibilities.
+I invite you to shearch some documantations about Min-Max and Alpha-Beta that are realy intrusting. Here is a video that explains really well the algorythm : 
+https://www.youtube.com/watch?v=l-hh51ncgDI&t=48s
+
+## The principle diagrams
+### The principle diagram without connector
+![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
+### The principle diagram with connector
+![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
+## The PCB
+![PCB_PCB_Auto-Mate_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)
+![PCB_PCB_Auto-Mate_2024-06-16 (4)](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)
+
 ## Parts list
 ### XY table
 - 2 x V slot 20x20 linear rail, Length = 375 mm
 - 1 x V slot 20x20 linear rail, Length = 350 mm
-- 1 x V slot 20x20 linear rail, Length = 315 mm
+- 1 x V![obraz_2024-06-16_125043552](https://github.com/DawidSac24/AutoMate/assets/171250080/a6fb82d2-2c1a-41ec-b499-5a049d693d8c)
+ slot 20x20 linear rail, Length = 315 mm
 - 1 x V slot 20x20 linear rail, Length = 395 mm
 - 10 x 90 degree Corner Bracket
 ### Transmission
@@ -116,13 +136,3 @@ They locate the position of the electromagnet by resetting at the start of the g
 - 1 x Hex. Socket Head Cap Screw - M4 x 15 mm
 - 4 x Slotted Countersunk Head Screw - M5 x 20 mm
 - 4 x Nut - M5
-## The principle diagrams
-### The principle diagram without connector
-![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
-### The principle diagram with connector
-![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
-## The PCB
-![PCB_PCB_Auto-Mate_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)
-![PCB_PCB_Auto-Mate_2024-06-16 (4)](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)
-## Used libraries
-I planned to use a [Nextion library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) for the code of my touchscreen, but I accidentally connected my screen to the wrong pins of my microcontroller and had to use my touchscreen manually with the [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/).
