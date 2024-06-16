@@ -73,7 +73,7 @@ They locate the position of the electromagnet by resetting at the start of the g
 I planned to use a [Nextion library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) for the code of my touchscreen, but I accidentally connected my screen to the wrong pins of my microcontroller and had to use my touchscreen manually with the [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/).
 
 ## My code
-I wanted to add an algorithm that would be used for an enemy robot. Unfortunately, I did not finish verifying the allowed moves for the pawns, which is required for the algorithm. So, you must wait for the next updates to see the algorithm development. To compensate, here is what I plan to do for the enemy robot:
+I wanted to add an algorithm that would be used for an enemy robot. Unfortunately, I did not finish verifying the allowed moves for the pawns, which is required for the algorithm. If you would like to see my algorithm development then, you would have to wait for the next updates. To compensate, here is what I plan to do for the enemy robot:
 ![obraz_2024-06-16_125101164](https://github.com/DawidSac24/AutoMate/assets/171250080/89d0b882-404a-4c24-a282-328a4100314f)
 
 It is called the Min-Max algorithm, and I will use Alpha-Beta pruning, which evaluates unnecessary calculations and ignores unwanted possibilities. I invite you to search for some documentation about Min-Max and Alpha-Beta that is really interesting. Here is a video that explains the algorithm very well:
