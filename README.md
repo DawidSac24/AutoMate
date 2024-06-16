@@ -22,8 +22,6 @@ https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-
   - [The principle diagram without connector](#The-principle-diagram-without-connector)
   - [The principle diagram with connector](#The-principle-diagram-with-connector)
 - [The PCB](#The-PCB)
-  - 
-  -
 - [Used libraries](#Used-libraries)  
 - [Partie mécanique](#Partie-mécanique)
 
@@ -131,5 +129,6 @@ They locate the position of the electromagnet by resetting at the start of the g
 ### The principle diagram with connector
 ![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
 ## The PCB
-
+![PCB_PCB_Auto-Mate_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)
+![PCB_PCB_Auto-Mate_2024-06-16 (4)](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)
 ## Used libraries
