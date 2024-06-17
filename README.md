@@ -100,38 +100,41 @@ https://www.youtube.com/watch?v=l-hh51ncgDI&t=48s
 - 8 x GT2 Toothless pulley
 - 3.5m x GT2 Belt
 ### Electronics
-- 1 x Arduino Nano
-- 2 x Stepper Motor - Adafruit - Nema 17 size - 200 steps/rev, 12V 350mA
-- 2 x Stepper Motor Driver Carrier - Pololu - A4988
-- 1 x Nextion touchscreen - NX3224T024
-- 1 x Electromagnet - 5Kg Holding Force
-- 1 x Freewheeling diode - 1N4001
-- 1 x Power Transistor - TIP 120
-- 2 x Micro Limit switch roller
-- 64 x Reed Switch - Dia 2 x 14.5 mm
-- 1 x Resistor - 1K ohm
-- 4 x MUX breakout - SparkFun - CD74HC4067
+- 1 x Arduino Nano 
+- 2 x Moteur pas à pas – Adafruit – Nema 17 200 pas/tr, 12V 350 mA 
+- 2 x Driveurs moteur pas à pas – Pololu – A4988 
+- 1 x Écran graphique Nextion 
+- 1 x Électro-aimant – force de maintien de 5Kg 
+- 1 x Diode de roue libre – 1N4007 
+- 1 x Transistor Darlington TIP120 
+- 2 x Fins de courses 
+- 64 x Reed Switch – 2 x 14.5 mm 
+- 1 x résistance de 1KΩ 
+- 4 x Multiplexeur – CD74HC4067 
+- 1 x connecteur femelle - DC Jack 
+- Barrettes sécables femelles  
 ### Box
-- 2 x plywood - 470 x 470 x 10 mm
-- 2 x plywood - 450 x 85 x 10 mm
-- 2 x plywood - 450 x 85 x 10 mm
+- 2 x Face 470 x 470 x 10 mm 
+- 2 x Face 450 x 85 x 10 mm 
+- 2 x Face 470 x 85 x 10 mm 
 ### Bolting
-- 8 x Mini V Wheel
-- 4 x Aluminium Spacer - ID : 5mm - Height : 6mm
-- 4 x Eccentric Spacer - M5
-- 4 x Hex. Locking Nut - M5
-- 4 x Thin Hex. Nut - M5
-- 8 x Mini Precision Shim - OD : 8 mm - ID : 5 mm - Thickness : 1 mm
-- 26 x T-Nuts - M5
-- 14 x Hex. Socket Button Head Cap Screw - M5 x 8 mm
-- 12 x Hex. Socket Button Head Cap Screw - M5 x 12 mm
-- 2 x Hex. Socket Button Head Cap Screw - M5 x 35 mm
-- 2 x Hex. Socket Button Head Cap Screw - M5 x 30 mm
-- 2 x Hex. Socket Button Head Cap Screw - M5 x 25 mm
-- 8 x Hex. Socket Button Head Cap Screw - M5 x 15 mm
-- 4 x Slotted Head Screw - M2 x 15 mm
-- 4 x Nut - M2
-- 8 x Hex. Socket Head Cap Screw - M3 x 10 mm
-- 1 x Hex. Socket Head Cap Screw - M4 x 15 mm
-- 4 x Slotted Countersunk Head Screw - M5 x 20 mm
-- 4 x Nut - M5
+- 8 x Nini roue en V 
+- 4 x Entretoise en aluminium - ID : 5 mm - Hauteur : 6 mm 
+- 4 x entretoise excentrique - M5 
+- 4 x hexagonaux. Écrou de blocage - M5 
+- 4 x hexagonaux fins. Écrou - M5 
+- 8 x Mini Cale de Précision - OD : 8 mm - ID : 5 mm - Epaisseur : 1 mm 
+- 26 x écrous en T - M5 
+- 14 x hexagonaux. Vis à tête cylindrique à six pans creux - M5 x 8 mm 
+- 12 x hexagonaux. Vis à tête cylindrique à six pans creux - M5 x 12 mm 
+- 2 x hexagonaux. Vis à tête cylindrique à six pans creux - M5 x 35 mm 
+- 2 x hexagonaux. Vis à tête cylindrique à six pans creux - M5 x 30 mm 
+- 2 x hexagonaux. Vis à tête cylindrique à six pans creux - M5 x 25 mm 
+- 8 x hexagonaux. Vis à tête cylindrique à six pans creux - M5 x 15 mm 
+- 4 x vis à tête fendue - M2 x 15 mm 
+- 4 x écrou - M2 
+- 8 x hexagonaux. Vis à tête creuse - M3 x 10 mm 
+- 1 x hexagonal. Vis à tête creuse - M4 x 15 mm 
+- 4 x vis à tête fraisée fendue - M5 x 20 mm 
+- 4 x écrou - M5
+- 128 x vis en laiton – M2 x 12mm 
