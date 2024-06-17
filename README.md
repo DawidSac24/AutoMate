@@ -6,85 +6,85 @@
 
 https://github.com/DawidSac24/AutoMate/assets/171250080/86d8ad7e-6ad9-42c3-80ba-5ba671484344
 
-## Summary
+## Sommaire
 
-- [Project source](#Project-source)
+- [Source du project](#Source-du-project)
 - [Introduction](#Introduction)
-- [The block diagram](#The-block-diagram) 
-- [Characteristics](#Characteristics)
-- [Used libraries](#Used-libraries)
-- [My code](#My-code)
-- [The principle diagrams](#The-principle-diagrams)
-  - [The principle diagram without connector](#The-principle-diagram-without-connector)
-  - [The principle diagram with connector](#The-principle-diagram-with-connector)
-- [The PCB](#The-PCB) 
-- [Parts list](#Parts-list) 
-  - [XY table](#XY-table)
+- [Le schéma bloc](#Le-schéma-bloc) 
+- [Characteristiques](#Characteristiques)
+- [Librairies utilisées](#Librairies-utilisées)
+- [Mon programme](#Mon-programme)
+- [Les schémas de principes](#Les-schémas-de-principes)
+  - [Le schéma de principe sans connecteurs](#Le-schéma-de-principe-sans-connecteurs)
+  - [Le schéma de principe avec connecteurs](#Le-schéma-de-principe-avec-connecteurs)
+- [Le PCB](#Le-PCB) 
+- [Liste des pièces](#Liste-des-pièces) 
+  - [Table XY](#Table-XY)
   - [Transmission](#Transmission)
-  - [Electronics](#Electronics)
-  - [Box](#Box)
-  - [Bolting](#Bolting)
+  - [Electronique](#Electronique)
+  - [Boitier](#Boitier)
+  - [Visserie](#Visserie)
 
-## Project source
-I would like to sincerely thank the author of the site from which I drew inspiration :
+## Source du project
+Je tiens à remercier sincèrement l'auteur du site dont je me suis inspiré :
 [instructables.com/Automated-Chessboard](https://www.instructables.com/Automated-Chessboard/)
 
 ## Introduction
-I am pleased to present my exciting project: Auto-Mate, an automated chess game designed to give a new dimension to this game. By enabling remote movement of pieces, I create the possibility of bringing chess online or against a robot on a chessboard. To achieve this, I have developed a case that handles the movement of the pieces. Auto-Mate is equipped with a screen, allowing for the automatic movement of pieces. It is also possible to move them manually using sensors located beneath the board. I made this project because I enjoy playing chess. It has allowed me to learn many new things in electronics and programming. Auto-mate is still in developpement (mostly the code). I invite you to see my work in the [TFE](TFE) folder, there is a more detailed documentation of my project. I also want to add that I am still a young student. My work and my code are far from perfect and contain many errors. My goal, above all, is to present my work and maybe inspire some people.
+J’ai le plaisir de vous présenter mon projet passionnant : Auto-Mate qui est un jeu d’échecs automatisé dont le but est de donner une nouvelle dimension à ce jeu. Grâce à un déplacement de pions à distance, je crée la possibilité d’amener le jeu d’échecs en ligne ou contre un robot sur un échiquier. Pour cela, j’ai réalisé un boitier s’occupant du déplacement des pions. Auto-mate est équipé d’un écran, permettent de piloter le déplacement automatique des pions. Il est aussi possible de les déplacer manuellement, au moyen des capteurs se trouvent en dessous de la planche.
+J’ai décidé de choisir ce projet, car j’apprécie jouer aux échecs. Ce dernier m’a permis de retrouver les sensations d’un vrai jeu d’échecs sur échiquier tout en ayant la possibilité de jouer contre un adversaire en ligne ou un robot. Cela m'a permis d'apprendre de nombreuses nouvelles choses en électronique et en programmation. Auto-Mate est encore en développement (principalement le code). Je vous invite à consulter mon travail dans le dossier [TFE](TFE), où se trouve une documentation plus détaillée de mon projet. Je tiens également à ajouter que je suis encore un jeune étudiant. Mon travail et mon code sont loin d'être parfaits et contiennent de nombreuses erreurs. Mon objectif, avant tout, est de présenter mon travail et peut-être d'inspirer certaines personnes.
 
-## The block diagram
+## Le schéma bloc
 
 ![Schema bloc](https://github.com/DawidSac24/AutoMate/assets/171250080/c1ea0b3d-b250-44f0-b621-0e71598915d2)
+### Le microprocesseur 
+C’est le cerveau du montage, il permet de piloter chaque composant (les moteurs, les drivers-moteurs, l’électro-aimant, les multiplexeurs et l’écran tactile) et lire les données nécessaires (les fins de courses, les boutons, les capteurs à aimant et l’écran tactile). 
+### L’écran tactile 
+Il offre la possibilité de naviguer dans les menus pour changer la difficulté de l’IA, affichage du minuteur, modifier les paramètres de la partie ou sélectionner le mode de jeu. Il communique avec l’UART, un bus série asynchrone. 
+### Les drivers-moteurs A et B 
+Ils pilotent les bobines des moteurs pas à pas et fournissent le courant nécessaire pour faire fonctionner ces derniers. 
+### Les moteurs A et B 
+Ils sont associés à un système de courroie, ils déplacent l’électro-aimant sur les 2 axes, x et y. 
+### L’électro-aimant 
+Il sera placé en dessous du damier et sert déplacer les pièces aimantées sur le damier. 
+### Le multiplexeur 
+Il lit successivement le signal des 8 capteurs et envoi la donnée au microprocesseur. 
+### Les capteurs à aimant 
+Ils déterminent la présence des pièces d’échecs. 
+### Les fins de course x et y 
+Ils localisent l’emplacement de l’électro-aimant en faisant une remise à zéro lors du démarrage de la partie. Ils permettent de calibrer la position de ce dernier, permettent de contourner les potentielles dérégulations lors de son déplacement. 
 
-#### The Microcontroller
-It is the brain of the setup, allowing control of each component (motors, motor drivers, electromagnet, multiplexers, and touchscreen) and reading the necessary data (limit switches, buttons, magnetic sensors, and touchscreen).
-#### The Touchscreen
-It provides the ability to navigate through menus to change the AI difficulty, display the timer, modify game settings, or select the game mode. It communicates with the UART, an asynchronous serial bus.
-#### Motor Drivers A and B
-They control the coils of the stepper motors and provide the necessary current to operate them.
-#### Motors A and B
-They are connected to a belt system, moving the electromagnet on the x and y axes.
-#### The Electromagnet
-It is placed underneath the board and is used to move the magnetized pieces on the board.
-#### The Multiplexer
-It successively reads the signals from the 8 sensors and sends the data to the microprocessor.
-#### Magnetic Sensors
-They determine the presence of the chess pieces.
-#### x and y Limit Switches
-They locate the position of the electromagnet by resetting at the start of the game. They allow for calibration of its position and help avoid potential misalignments during movement.
+## Characteristiques
+### Generales :
+- Écran graphique de couleur tactile, résistif, 320×240 pixels 
+- 2 boutons d’arcade 
+- 32 pions aimantés 
+- Mode de fonctionnement : 1/2 joueurs 
+- Déplacement automatique des pièces 
+- Détection automatique des pièces 
+- Zone pour pions éliminés 
+### Electroniques :
+- Alimentation 12V, 2A 
+### Mechaniques :
+- Dimensions : 496 mm x 496 mm x 100 mm  
+- 6 faces en contre-plaqué 
+- Poids : 4 kg
 
-## Characteristics
-### General :
-- Color graphical resistive touchscreen, 320×240 pixels
-- 2 arcade buttons
-- 32 magnetized pieces
-- Operating modes: 1/2 players
-- Automatic piece movement
-- Automatic piece detection
-- Area for eliminated pieces
-### Electronics :
-- Power supply: 12V, 2A
-### Mechanics :
-- Dimensions: 496 mm x 496 mm x 100 mm
-- 6 plywood faces
-- Weight: 4 kg
+## Librairies utilisées
+Je voulais utuliser la  [librairie Nextion](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) pour le code de mon écran tactile mais, j'ai accidentellement connecté mon écran aux mauvaises bornes de mon microcontrôleur et j'ai dû utiliser mon écran tactile manuellement avec la [librairie SoftwareSerial](https://docs.arduino.cc/learn/built-in-libraries/software-serial/).
 
-## Used libraries
-I planned to use a [Nextion library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/) for the code of my touchscreen, but I accidentally connected my screen to the wrong pins of my microcontroller and had to use my touchscreen manually with the [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial/).
-
-## My code
-I wanted to add an algorithm that would be used for an enemy robot. Unfortunately, I did not finish verifying the allowed moves for the pawns, which is required for the algorithm. If you would like to see my algorithm development then, you would have to wait for the next updates. To compensate, here is what I plan to do for the enemy robot:
+## Mon programme
+Je voulais ajouter un algorithme qui serait utilisé pour un robot ennemi. Malheureusement, je n'ai pas fini de faire la vérification des déplacements autorisés pour les pions, ce qui est nécessaire pour l'algorithme. Si vous souhaitez voir le développement de ce-dernier, vous devrez attendre les prochaines mises à jour. Pour compenser, voici ce que je prévois de faire pour l'algorithmed du robot ennemi :
 ![obraz_2024-06-16_125101164](https://github.com/DawidSac24/AutoMate/assets/171250080/89d0b882-404a-4c24-a282-328a4100314f)
 
-It is called the Min-Max algorithm, and I will use Alpha-Beta pruning, which evaluates unnecessary calculations and ignores unwanted possibilities. I invite you to search for some documentation about Min-Max and Alpha-Beta that is really interesting. Here is a video that explains the algorithm very well:
+C'est ce qu'on appelle l'algorithme Min-Max, et j'utiliserai l'élagage Alpha-Beta, qui évalue les calculs inutiles et ignore les possibilités non souhaitées. Je vous invite à chercher de la documentation sur Min-Max et Alpha-Beta, qui est très intéressante. Voici une vidéo qui explique très bien l'algorithme :
 https://www.youtube.com/watch?v=l-hh51ncgDI&t=48s
 
-## The principle diagrams
-### The principle diagram without connector
+## Les schémas de principes
+### Le schéma de principe sans connecteurs
 ![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
-### The principle diagram with connector
+### Le schéma de principe avec connecteurs
 ![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
-## The PCB
+## Le PCB
 ![PCB_PCB_Auto-Mate_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)
 ![PCB_PCB_Auto-Mate_2024-06-16 (4)](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)
 
