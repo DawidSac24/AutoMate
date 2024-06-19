@@ -83,10 +83,11 @@ https://www.youtube.com/watch?v=l-hh51ncgDI&t=48s
 [easyEDA](https://oshwlab.com/ivaninraci/auto-mate)
 ### The principle diagram without connector
 [![image](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)](https://oshwlab.com/ivaninraci/auto-mate)
-![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
 ### The principle diagram with connector
-![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
+[![image](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)](https://oshwlab.com/ivaninraci/auto-mate)
 ## The PCB
+[![image](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)](https://oshwlab.com/ivaninraci/auto-mate)
+[![image](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)](https://oshwlab.com/ivaninraci/auto-mate)
 ![PCB_PCB_Auto-Mate_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/69b1cbf8-4836-43d2-8acc-4d27aa3df8c1)
 ![PCB_PCB_Auto-Mate_2024-06-16 (4)](https://github.com/DawidSac24/AutoMate/assets/171250080/37777ca2-a9b3-404c-a269-da8f828d9885)
 
