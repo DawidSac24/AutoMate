@@ -80,7 +80,10 @@ It is called the Min-Max algorithm, and I will use Alpha-Beta pruning, which eva
 https://www.youtube.com/watch?v=l-hh51ncgDI&t=48s
 
 ## The principle diagrams
+
+
 ### The principle diagram without connector
+[principle diagram without connector](https://u.easyeda.com/join?type=project&key=efd06bfd3faa420e8ac0c846c88cb4db&inviter=e9311386272d4648abcb98458f783497)
 ![Schematic_Auto-Mate_Scema_sans_borniers_Dawid_2024-05-30](https://github.com/DawidSac24/AutoMate/assets/171250080/d2962a78-1aa2-455f-b27d-5ef20a18f260)
 ### The principle diagram with connector
 ![Schematic_Auto-Mate_dawid1_2024-06-16](https://github.com/DawidSac24/AutoMate/assets/171250080/a8f469b7-b881-42df-bde1-92fe47a32006)
