@@ -2,7 +2,7 @@
 [![Static Badge](https://img.shields.io/badge/README-EN_FRANCAIS-purple
 )](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
 [![Static Badge](https://img.shields.io/badge/Linked-in-blue)](https://www.linkedin.com/in/dawid-sac/)
-
+[![Static Badge](https://img.shields.io/badge/easy-EDA-blue)](https://oshwlab.com/ivaninraci/auto-mate)
 > © INRACI
 
 ![Image](https://github.com/DawidSac24/AutoMate/assets/171250080/feb73961-88cd-448d-83f6-739fa6a3914a)
