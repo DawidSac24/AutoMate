@@ -4,6 +4,7 @@
 
 [![Static Badge](https://img.shields.io/badge/README_EN_FRANCAIS-blue)](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
 
+[![Static Badge](https://img.shields.io/badge/any_text-you_like-blue)](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
 
 
 > © INRACI
