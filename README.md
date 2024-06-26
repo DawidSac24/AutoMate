@@ -1,7 +1,7 @@
 # AutoMate
 [![Build Status](https://cdn.prod.website-files.com/5e0f1144930a8bc8aace526c/65dd9eb5aaca434fac4f1c7c_Build-Passing-brightgreen.svg)]()
 
-[![Static Badge](https://img.shields.io/badge/Lnked-In-blue)](https://www.linkedin.com/in/dawid-sac/)
+[![Static Badge](https://img.shields.io/badge/Linked-in-blue)](https://www.linkedin.com/in/dawid-sac/)
 [![Static Badge](https://img.shields.io/badge/README-EN_FRANCAIS-purple
 )](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
 
