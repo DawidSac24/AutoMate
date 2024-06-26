@@ -1,4 +1,5 @@
 # AutoMate
+[![Static Badge](https://img.shields.io/badge/Reception%20main%20robotis%C3%A9%20-61DBFB?style=for-the-badge&logo=Arduino&labelColor=black)](https://github.com/Daoud1190/Reception_moteur_main)
 > © INRACI
 
 ![Image](https://github.com/DawidSac24/AutoMate/assets/171250080/feb73961-88cd-448d-83f6-739fa6a3914a)
