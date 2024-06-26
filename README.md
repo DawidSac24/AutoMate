@@ -1,6 +1,7 @@
 # AutoMate
 [![Static Badge](https://img.shields.io/badge/README-IN_ENGLISH-purple)](https://github.com/DawidSac24/AutoMate/blob/main/README.md)
 [![Static Badge](https://img.shields.io/badge/Linked-in-blue)](https://www.linkedin.com/in/dawid-sac/)
+[![Static Badge](https://img.shields.io/badge/easy-EDA-blue)](https://oshwlab.com/ivaninraci/auto-mate)
 
 > © INRACI
 
