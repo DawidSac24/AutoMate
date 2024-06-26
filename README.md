@@ -2,7 +2,7 @@
 [![Build Status](https://cdn.prod.website-files.com/5e0f1144930a8bc8aace526c/65dd9eb5aaca434fac4f1c7c_Build-Passing-brightgreen.svg)]()
 [![Static Badge](https://img.shields.io/badge/Reception%20main%20robotis%C3%A9%20-61DBFB?style=for-the-badge&logo=Arduino&labelColor=black)](https://github.com/Daoud1190/Reception_moteur_main)
 
-[![Static Badge](https://img.shields.io/badge/README_EN_FRANCAIS-blue)](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
+[![Static Badge](https://img.shields.io/badge/README-EN_FRANCAIS-blue)](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
 
 [![Static Badge](https://img.shields.io/badge/any_text-you_like-blue)](https://github.com/DawidSac24/AutoMate/blob/README-en-fraçais/README.md)
 
