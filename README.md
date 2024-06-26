@@ -6,7 +6,7 @@
 > © INRACI
 
 ![Image](https://github.com/DawidSac24/AutoMate/assets/171250080/feb73961-88cd-448d-83f6-739fa6a3914a)
-## Video 
+## Vidéo 
 
 
 
