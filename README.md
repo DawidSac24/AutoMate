@@ -1,5 +1,5 @@
 # AutoMate
-[![Static Badge](https://img.shields.io/badge/README-IN_ENGLISH-blue)](https://github.com/DawidSac24/AutoMate/main/README.md)
+[![Static Badge](https://img.shields.io/badge/README-IN_ENGLISH-blue)](https://github.com/DawidSac24/AutoMate/blob/main/README.md)
 
 > © INRACI
 
