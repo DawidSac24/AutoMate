@@ -109,7 +109,7 @@ void demarrage_partie() {
   pion_selectionne = false;
   sequance = JOUEUR_BLANC;
   calibrate();
-  reset_pos();
+  dep.reset();
   Serial.println("sequance = START");
 }
 

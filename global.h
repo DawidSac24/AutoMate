@@ -1,3 +1,5 @@
+#ifndef global_h
+#define global_h
 //********************************************** LIBRAIRIES *******************************************************************
 #include <Arduino.h>
 #include <SoftwareSerial.h>  // SoftwareSerial Library
@@ -108,19 +110,12 @@ extern int secondes;
 extern int sigval;
 extern SoftwareSerial mySerial;
 //********************************************** FONCTIONS ***********************************************************************
-
-void dep_vertical(int *temps, int *pas, int *dir);
-void dep_horizontal(int *temps, int *pas, int *dir);
-void reset_pos();
 void decompte();
 void envoi_ecran();
 void envoi_ecran_val(String *variable, int *info);
 void envoi_ecran_str(String *variable, String *info);
 void calibrate();
 void demarrage_partie();
-void dep_pion();
-void demo();
-bool elim_pion(int colonne, int ligne);
 bool verif_dep();
 bool pion_blanc();
 bool pion_noir();
@@ -128,3 +123,16 @@ bool verif_tour();
 void lecture_aimants();
 void affichage_aimants();
 void affichage_planche();
+//********************************************** CLASSES ***********************************************************************
+class Dep {
+public:
+  Dep();
+  void init();
+  void vertical(int *temps, int *pas, int *dir);
+  void horizontal(int *temps, int *pas, int *dir);
+  void reset();
+  void pion();
+  void demo();
+};
+
+#endif

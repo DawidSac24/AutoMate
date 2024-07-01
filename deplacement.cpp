@@ -1,7 +1,19 @@
-#include "Arduino.h"
 #include "global.h"
 
-void dep_horizontal(int *temps, int *pas, int *dir) {  // dir 1 = gauche et dir 2 = droite
+Dep::Dep() {}
+void Dep::init() {
+  pinMode(STEP1, OUTPUT);
+  pinMode(DIR1, OUTPUT);
+  pinMode(STEP2, OUTPUT);
+  pinMode(DIR2, OUTPUT);
+
+  pinMode(FCA, INPUT_PULLUP);
+  pinMode(FCB, INPUT_PULLUP);
+
+  dep.reset();
+}
+
+void Dep::horizontal(int *temps, int *pas, int *dir) {  // dir 1 = gauche et dir 2 = droite
   digitalWrite(DIR1, *dir);
   digitalWrite(DIR2, *dir);
   for (int x = 0; x < *pas; x++) {
@@ -14,7 +26,7 @@ void dep_horizontal(int *temps, int *pas, int *dir) {  // dir 1 = gauche et dir 
   }
 }
 
-void dep_vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
+void Dep::vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
   if (*dir == 1) {
     digitalWrite(DIR1, !*dir);
     digitalWrite(DIR2, *dir);
@@ -33,7 +45,7 @@ void dep_vertical(int *temps, int *pas, int *dir) {  // dir 1 = haut dir 2 = bas
   }
 }
 
-void reset_pos() {
+void Dep::reset() {
   // dep vers l'arriere
   vit_dep = 1000;
 
@@ -78,7 +90,7 @@ void reset_pos() {
   dep_horizontal(&vit_dep, &nmbre_pas, 2);
 }
 
-void dep_pion() {
+void Dep::pion() {
 
   x_dep = case_x[colonne_select] - x_precedent;
   y_dep = case_y[ligne_select] - y_precedent;
@@ -173,7 +185,7 @@ void dep_pion() {
   pion_selectionne = !pion_selectionne;
 }
 
-void demo() {
+void Dep::demo() {
   reset_pos();
   demonstration = true;
   // d2 -> d4

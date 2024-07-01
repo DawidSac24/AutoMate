@@ -8,6 +8,7 @@
 
 //********************************************** LIBRAIRIES *******************************************************************
 #include "global.h"
+Dep dep();
 //**********************************************************  VARIABLES GLOBALES *********************************************************************************
 //******************************************* PLANCHE DE DEPART ***************************************************************
 const int planche_depart[8][8] = {
@@ -106,14 +107,6 @@ void setup() {
   pinMode(RXPIN, INPUT);
   pinMode(TXPIN, OUTPUT);
 
-  pinMode(STEP1, OUTPUT);
-  pinMode(DIR1, OUTPUT);
-  pinMode(STEP2, OUTPUT);
-  pinMode(DIR2, OUTPUT);
-
-  pinMode(FCA, INPUT_PULLUP);
-  pinMode(FCB, INPUT_PULLUP);
-
   pinMode(AIMANT, OUTPUT);
 
   pinMode(SIG, INPUT_PULLUP);
@@ -134,8 +127,8 @@ void setup() {
       reed_sensor_status_memory[i][j] = 1;
     }
   }
-
-  reset_pos();
+  
+  dep.init();
 
   Serial.println("ready to start");
   t = millis;
@@ -159,7 +152,7 @@ void loop() {
       //**********************************************************  PAGE : Menu principal *********************************************************************************
       case 1:
         if (id_bouton == 2)
-          demo();
+          dep.demo();
         break;
       //**********************************************************  PAGE : Choix de la difficulté de la partie ************************************************************
       case 3:
@@ -210,7 +203,7 @@ void loop() {
       //**********************************************************  PAGE : Debug ******************************************************************************************
       case 6:
         Serial.println("Page Debug");
-        reset_pos();
+        dep.reset();
         ligne_select = 7;
         colonne_select = 0;
         x_precedent = 0;
@@ -251,7 +244,7 @@ void loop() {
           colonne_select = id_bouton - 2;
           // Serial.println(colonne_select);
 
-          dep_pion();
+          dep.pion();
 
 
         } else if (id_bouton == 11) {
@@ -266,7 +259,7 @@ void loop() {
         if (data[2] == 1)
           calibrate();
         if (data[2] == 2) {
-          reset_pos();
+          dep.reset();
           x_precedent = 0;
           y_precedent = 0;
         }
